@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Bettex
+Comment=Bettex P2P Cryptocurrency
+Comment[fr]=Bettex, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Bettex, eşten eşe kriptografik sanal para birimi
+Exec=bettex-qt %u
+Terminal=false
+Type=Application
+Icon=bettex128
+MimeType=x-scheme-handler/bettex;
+Categories=Office;Finance;

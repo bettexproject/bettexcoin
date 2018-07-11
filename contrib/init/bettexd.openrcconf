@@ -1,0 +1,26 @@
+# /etc/conf.d/bettexd: config file for /etc/init.d/bettexd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/bettex/bettex.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/bettexd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/bettexd.pid"
+
+# Where to write bettexd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/bettexd"
+
+# User and group to own bettexd process
+#BITCOIND_USER="bettex"
+#BITCOIND_GROUP="bettex"
+
+# Path to bettexd executable
+#BITCOIND_BIN="/usr/bin/bettexd"
+
+# Nice value to run bettexd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

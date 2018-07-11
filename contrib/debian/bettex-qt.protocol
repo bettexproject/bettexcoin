@@ -1,0 +1,11 @@
+[Protocol]
+exec=bettex-qt '%u'
+protocol=bettex
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

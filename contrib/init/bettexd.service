@@ -1,0 +1,26 @@
+[Unit]
+Description=Bettex's distributed currency daemon
+After=network.target
+
+[Service]
+User=bettex
+Group=bettex
+
+Type=forking
+PIDFile=/var/lib/bettexd/bettexd.pid
+
+ExecStart=/usr/bin/bettexd -daemon -pid=/var/lib/bettexd/bettexd.pid \
+          -conf=/etc/bettex/bettex.conf -datadir=/var/lib/bettexd
+
+ExecStop=-/usr/bin/bettex-cli -conf=/etc/bettex/bettex.conf \
+         -datadir=/var/lib/bettexd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
