@@ -35,6 +35,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     // define text to place
     QString titleText = tr("Bettex Core");
     QString versionText = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()));
+    QString copyrightTextDash = QChar(0xA9) + QString(" 2011-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core developers"));
     QString copyrightTextPIVX = QChar(0xA9) + QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The PIVX Core developers"));
     QString copyrightTextBettex = QChar(0xA9) + QString(" 2017-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bettex Core developers"));
     QString titleAddText = networkStyle->getTitleAddText();
@@ -67,8 +68,9 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     // draw copyright stuff
     pixPaint.setFont(QFont(font, 10 * fontFactor));
     // pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace, copyrightTextBtc);
-    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 24, copyrightTextPIVX);
-    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 36, copyrightTextBettex);
+    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 6,copyrightTextDash);
+    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 18, copyrightTextPIVX);
+    pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 30, copyrightTextBettex);
 
     // draw additional text if special network
     if (!titleAddText.isEmpty()) {

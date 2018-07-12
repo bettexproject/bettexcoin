@@ -52,9 +52,9 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>0</y>
+     <y>10</y>
      <width>451</width>
-     <height>121</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="lineWidth">
@@ -62,9 +62,7 @@
    </property>
    <property name="text">
     <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Bettex addresses after it matures.
-To Add: enter percentage to give and Bettex address to add to the MultiSend vector.
-To Delete: Enter address to delete and press delete.
-MultiSend will not be activated unless you have clicked Activate</string>
+To Add: enter percentage to give and Bettex address to add to the MultiSend vector.</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

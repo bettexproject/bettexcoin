@@ -101,9 +101,9 @@ private:
     QAction* signMessageAction;
     QAction* verifyMessageAction;
     QAction* bip38ToolAction;
-    QAction* multisigCreateAction;
-    QAction* multisigSpendAction;
-    QAction* multisigSignAction;
+    //QAction* multisigCreateAction;
+    //QAction* multisigSpendAction;
+    //QAction* multisigSignAction;
     QAction* aboutAction;
     QAction* receiveCoinsAction;
     QAction* privacyAction;
