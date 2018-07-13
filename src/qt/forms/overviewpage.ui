@@ -60,7 +60,7 @@
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
-              <height>80</height>
+              <height>90</height>
              </size>
             </property>
            </spacer>
