@@ -1222,7 +1222,7 @@ QWidget .QFrame#frame_2 .QLabel#label_4 { /* Recent Transactions Label */
 min-width:410px;
 color:#698967;
 margin-left:67px;
-margin-top:83px;
+margin-top:20px; /* 83 px*/
 margin-right:5px;
 padding-right:5px;
 font-weight:bold;
