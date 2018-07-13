@@ -1287,7 +1287,7 @@ MultiSend: %1</translation>
     </message>
     <message>
         <source>Last Seen (UTC)</source>
-        <translation>Последний визит (UTC)</translation>
+        <translation>Последняя активность (UTC)</translation>
     </message>
     <message>
         <source>Pubkey</source>
@@ -2427,6 +2427,14 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     <message>
         <source>Wallet In Use:</source>
         <translation>Используемый кошелек:</translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>Востановление wallet.dat</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys form a corrupt wallet.dat</source>
+        <translation>Попытка востановить приватный ключ из поврежденного wallet.dat</translation>
     </message>
     <message>
         <source>Rescan blockchain files</source>
