@@ -1207,15 +1207,16 @@ margin-left:0px;
 
 /**************************** RECENT TRANSACTIONS ***************************************/
 
-QWidget .QFrame#frame_2 { /* Transactions Widget */
+/* Transactions Widget */
+/*QWidget .QFrame#frame_2 {
 min-width:410px;
 min-height:100px;
 margin-right:20px;
 margin-left:0;
 margin-top:0;
-/*background-image: url(':/images/bettex_logo_horizontal');
-background-repeat:none;*/
-}
+background-image: url(':/images/bettex_logo_horizontal');
+background-repeat:none;
+}*/
 
 QWidget .QFrame#frame_2 .QLabel#label_4 { /* Recent Transactions Label */
 min-width:410px;
