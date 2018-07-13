@@ -912,7 +912,8 @@ background-color:#ffffff;
 }
 
 QLabel#labelOverviewHeaderRight {
-qproperty-alignment: 'AlignVCenter | AlignLeft';
+qproperty-alignment: 'AlignVCenter | AlignRight';
+qproperty-wordWrap: true;
 background-image: url(':/images/bettex_logo_horizontal');
 background-repeat: no-repeat;
 }

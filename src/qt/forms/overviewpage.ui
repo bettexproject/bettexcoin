@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
+    <width>1105</width>
     <height>615</height>
    </rect>
   </property>
@@ -60,7 +60,7 @@
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
-              <height>20</height>
+              <height>80</height>
              </size>
             </property>
            </spacer>
