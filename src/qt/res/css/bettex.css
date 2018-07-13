@@ -898,35 +898,6 @@ font-weight:normal;
 padding-right:5px;
 }
 
-/* Header design for ALL tabs/pages *****************************************************/
-/* Horizontal lines */
-QFrame[frameShape="4"] { /* QFrame::HLine == 0x0004 */
-border:1px solid #8cab8a;
-}
-
-/* Headers */
-QLabel#labelOverviewHeaderLeft {
-font-weight:bold;
-font-size:20px;
-background-color:#ffffff;
-}
-
-/*QLabel#labelOverviewHeaderRight {
-qproperty-alignment: 'AlignVCenter | AlignLeft';
-background-image: url(':/images/bettex_logo_horizontal');
-background-repeat: no-repeat;
-}*/
-
-QWidget .QFrame#frame_Header { /* Header with Page-Title and BETTEX-image */
-min-width:400px;
-background-color:#ffffff;
-}
-
-QWidget .QFrame#frame_BG { /* Background */
-min-width:400px;
-background-color:#f8f6f6;
-}
-
 /**************************** OVERVIEW SCREEN *******************************************/
 
 QWidget .QFrame#frame_Space { /* Space between Header and Content */
