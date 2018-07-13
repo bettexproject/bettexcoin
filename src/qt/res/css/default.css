@@ -163,7 +163,7 @@ background-color:#f2f2f2;
 /****************************************************************************************/
 
 QPushButton { /* Global Button Style */
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #6699ff, stop: .1 #698967, stop: .95 #698967, stop: 1 #6699ff);
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #8cab8a, stop: .1 #698967, stop: .95 #698967, stop: 1 #8cab8a);
 border:0;
 border-radius:3px;
 color:#ffffff;
@@ -176,7 +176,7 @@ padding-bottom:5px;
 }
 
 QPushButton:hover {
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #0055ff, stop: .1 #1a75ff, stop: .95 #1a75ff, stop: 1 #0055ff);
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #8cab8a, stop: .1 #8cab8a, stop: .95 #8cab8a, stop: 1 #8cab8a);
 }
 
 QPushButton:focus {
@@ -707,7 +707,7 @@ background-color:#8CAB8A;
 }
 
 QWidget#PrivacyDialog QPushButton {
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #cf8107, stop: .1 #698967, stop: .95 #698967, stop: 1 #e28901);
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #8cab8a, stop: .1 #698967, stop: .95 #698967, stop: 1 #8cab8a);
 border:0;
 border-radius:3px;
 color:#ffffff;
@@ -720,7 +720,7 @@ padding-bottom:5px;
 }
 
 QWidget#PrivacyDialog QPushButton:hover {
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #0055ff, stop: .1 #1a75ff, stop: .95 #1a75ff, stop: 1 #0055ff);
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #8cab8a, stop: .1 #8cab8a, stop: .95 #8cab8a, stop: 1 #8cab8a);
 }
 
 QWidget#PrivacyDialog QPushButton:focus {
@@ -1213,8 +1213,8 @@ min-height:100px;
 margin-right:20px;
 margin-left:0;
 margin-top:0;
-background-image: url(':/images/bettex_logo_horizontal');
-background-repeat:none;
+/*background-image: url(':/images/bettex_logo_horizontal');
+background-repeat:none;*/
 }
 
 QWidget .QFrame#frame_2 .QLabel#label_4 { /* Recent Transactions Label */
