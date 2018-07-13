@@ -2473,7 +2473,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
         <translation>Удаление всех локальных файлов кошелька</translation>
     </message>
     <message>
-        <source>Deletes all local blockchain folders so the wallet synchronizes from stratch.</source>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from sсratch.</source>
         <translation>Удаление всех локальных файлов и папок кошелька для новой синхронизации.</translation>
     </message>
     <message>
