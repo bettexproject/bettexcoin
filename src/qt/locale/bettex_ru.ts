@@ -2433,7 +2433,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
         <translation>Востановление wallet.dat</translation>
     </message>
     <message>
-        <source>Attempt to recover private keys form a corrupt wallet.dat</source>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
         <translation>Попытка востановить приватный ключ из поврежденного wallet.dat</translation>
     </message>
     <message>
@@ -2467,6 +2467,14 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     <message>
         <source>Rebuild block chain index from current blk000??.dat files.</source>
         <translation>Перестроить индекс блокчейна из текущих blk000??.dat файлов.</translation>
+    </message>
+    <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>Удаление всех локальных файлов кошелька</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from stratch.</source>
+        <translation>Удаление всех локальных файлов и папок кошелька для новой синхронизации.</translation>
     </message>
     <message>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
