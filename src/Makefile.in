@@ -539,7 +539,7 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 	qt/res/icons/unit_tmbettex.png \
 	qt/res/icons/unit_tubettex.png qt/res/images/about.png \
 	qt/res/images/splash.png qt/res/images/splash_testnet.png \
-	#qt/res/images/bettex_logo_horizontal.png \#
+	qt/res/images/bettex_logo_horizontal.png \
 	qt/res/images/downArrow.png qt/res/images/downArrow_small.png \
 	qt/res/images/upArrow_small.png \
 	qt/res/images/leftArrow_small.png \
@@ -2326,7 +2326,7 @@ EXTRA_DIST = leveldb $(am__append_18)
 @ENABLE_QT_TRUE@  qt/res/images/about.png \
 @ENABLE_QT_TRUE@  qt/res/images/splash.png \
 @ENABLE_QT_TRUE@  qt/res/images/splash_testnet.png \
-#@ENABLE_QT_TRUE@  qt/res/images/bettex_logo_horizontal.png \#
+@ENABLE_QT_TRUE@  qt/res/images/bettex_logo_horizontal.png \
 @ENABLE_QT_TRUE@  qt/res/images/downArrow.png \
 @ENABLE_QT_TRUE@  qt/res/images/downArrow_small.png \
 @ENABLE_QT_TRUE@  qt/res/images/upArrow_small.png \
