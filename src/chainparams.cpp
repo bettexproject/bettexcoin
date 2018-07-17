@@ -164,8 +164,8 @@ public:
         assert(hashGenesisBlock == uint256("0xba22dc25a234e72c66e105b8800a569a3a1887b18e8ad5fd59f357d9bdd1eeb2"));
         assert(genesis.hashMerkleRoot == uint256("0x03ca3a086b7a701a8f1f68f8a9c398f9a168d7021648cdc58536431ad97fe4ad"));
 
-        vSeeds.push_back(CDNSSeedData("seed1", "seed1.bettex.bet"));     // Primary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("seed2", "seed2.bettex.bet"));    // Secondary DNS Seeder from Fuzzbawls
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.bettex.bet"));     // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("seed2", "seed2.bettex.bet"));    // Secondary DNS Seeder
         vSeeds.push_back(CDNSSeedData("seed3", "seed3.bettex.bet"));   // Single node address
 
 		    base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);

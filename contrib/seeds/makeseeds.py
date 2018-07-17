@@ -15,8 +15,8 @@ MIN_BLOCKS = 615801
 # These are hosts that have been observed to be behaving strangely (e.g.
 # aggressively connecting to every node).
 SUSPICIOUS_HOSTS = {
-    "178.62.236.76", "165.227.154.96", "51.15.252.109",
-    "51.15.251.122", "51.15.243.145", "51.15.239.182",
+    "51.15.252.109","51.15.251.122",
+    "51.15.243.145", "51.15.239.182",
     "51.15.115.27", "51.15.107.77", "51.15.44.15"
 }
 
