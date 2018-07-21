@@ -1,4 +1,4 @@
-<font size="+3">Bettex coin is coin for Bettex project - decentralized betting exchange</font>
+<p align="center" style="color:#8cab8a; font-size:30px">Bettex coin is coin for Bettex project - decentralized betting exchange</p>
 
 More information about project [bettex.bet](http://www.bettex.bet)
 
@@ -30,7 +30,7 @@ Explorer [explorer.bettex.bet](http://explorer.bettex.bet)
 
 <table>
 <th>Phase</th><th>Block Height</th><th>Reward</th>
-<tr><td>Phase 1</td><td>1-800</td><td>1 BTXC</td></tr>
+<tr><td>Phase 1</td><td>2-800</td><td>1 BTXC</td></tr>
 </table>
 
 ### PoS Rewards Breakdown
