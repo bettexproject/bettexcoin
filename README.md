@@ -1,6 +1,8 @@
-<strong>Bettex coin is coin for Bettex project - decentralized betting exchange</strong>
+<font size="+3">Bettex coin is coin for Bettex project - decentralized betting exchange</font>
 
-More information about project [bettex.bet](http://www.bettex.bet) Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/)
+More information about project [bettex.bet](http://www.bettex.bet)
+
+Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/)
 
 Explorer [explorer.bettex.bet](http://explorer.bettex.bet)
 
@@ -29,6 +31,7 @@ Explorer [explorer.bettex.bet](http://explorer.bettex.bet)
 <table>
 <th>Phase</th><th>Block Height</th><th>Reward</th>
 <tr><td>Phase 1</td><td>1-800</td><td>1 BTXC</td></tr>
+</table>
 
 ### PoS Rewards Breakdown
 
