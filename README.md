@@ -1,4 +1,4 @@
-<p align="center" style="color:#8cab8a; font-size:30px">Bettex coin is coin for Bettex project - decentralized betting exchange</p>
+<strong align="center">Bettex coin is coin for Bettex project - decentralized betting exchange</strong>
 
 More information about project [bettex.bet](http://www.bettex.bet)
 
