@@ -1,10 +1,14 @@
-<strong align="center">Bettex coin is coin for Bettex project - decentralized betting exchange</strong>
+<p align="center"><img src="https://github.com/bettexproject/bettexcoin/blob/master/readme_logo.png"></p>
 
-More information about project [bettex.bet](http://www.bettex.bet)
+## About Bettex coin
 
-Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/)
+Bettex coin is coin for Bettex project - decentralized betting exchange
 
-Explorer [explorer.bettex.bet](http://explorer.bettex.bet)
+- More information about project [bettex.bet](http://www.bettex.bet)
+
+- Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/)
+
+- Explorer [explorer.bettex.bet](http://explorer.bettex.bet)
 
 ### Coin Specs
 <table>
