@@ -40,7 +40,7 @@ Bettex coin is coin for Bettex project - decentralized betting exchange
 ### PoS Rewards Breakdown
 
 <table>
-<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternodes</th><th>Stakers</th>
+<th>Phase</th><th>Block Height</th><th>Reward</th><th>MN</th><th>Stakers</th>
 <tr><td>Phase 1</td><td>801-1800</td><td>2 BTXC</td><td>80%</td><td>20%</td></tr>
 <tr><td>Phase 2</td><td>1801-15000</td><td>3 BTXC</td><td>80%</td><td>20%</td></tr>
 <tr><td>Phase 3</td><td>15001-21600</td><td>4 BTXC</td><td>80%</td><td>20%</td></tr>
