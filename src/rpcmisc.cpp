@@ -110,11 +110,11 @@ Value getinfo(const Array& params, bool fHelp)
     obj.push_back(Pair("testnet", Params().TestnetToBeDeprecatedFieldRPC()));
     obj.push_back(Pair("moneysupply",ValueFromAmount(chainActive.Tip()->nMoneySupply)));
     Object zbettexObj;
-    for (auto denom : libzerocoin::zerocoinDenomList) {
+    /*for (auto denom : libzerocoin::zerocoinDenomList) {
         zbettexObj.push_back(Pair(to_string(denom), ValueFromAmount(chainActive.Tip()->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
     zbettexObj.emplace_back(Pair("total", ValueFromAmount(chainActive.Tip()->GetZerocoinSupply())));
-    obj.emplace_back(Pair("zBTXCsupply", zbettexObj));
+    obj.emplace_back(Pair("zBTXCsupply", zbettexObj));*/
 
 #ifdef ENABLE_WALLET
     if (pwalletMain) {
