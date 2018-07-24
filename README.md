@@ -6,7 +6,7 @@ Bettex coin is coin for Bettex project - decentralized betting exchange
 
 - More information about project [bettex.bet](http://www.bettex.bet)
 
-- Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/)
+- Visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/index.php?topic=4729581.0)
 
 - Explorer [explorer.bettex.bet](http://explorer.bettex.bet)
 
