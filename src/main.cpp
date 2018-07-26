@@ -2096,7 +2096,7 @@ int64_t GetBlockValue(int nHeight)
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         if (nHeight < 200 && nHeight > 0)
-            return 10000 * COIN;
+            return 1000 * COIN;
     }
 
     if(IsTreasuryBlock(nHeight)) {
