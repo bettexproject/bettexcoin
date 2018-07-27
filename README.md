@@ -27,7 +27,7 @@ Bettex coin is coin for Bettex project - decentralized betting exchange
 <th colspan=4>Genesis Block</th>
 <tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th></tr>
 <tr><td>0</td><td>1,000,000 BTXC</td><td>Initial Pre-mine, will be burnt in block [550500]</td></tr>
-<tr><td>1</td><td>100,000 BTXC</td><td>For bounti</td></tr>
+<tr><td>1</td><td>100,000 BTXC</td><td>For bounty</td></tr>
 </table>
 
 ### PoW Rewards Breakdown
