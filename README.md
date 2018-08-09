@@ -2,7 +2,12 @@
 
 ## About Bettex coin
 
-Bettex coin is coin for Bettex project - decentralized betting exchange
+To solve a problems of the centralized systems, we created a project called "Bettex project". 
+Our main idea is to set up a decentralized betting exchange based on the blockchain, where a cryptocurrency will be used as a means of payment.
+Decentralized betting exchange "Bettex" will be based on the blockchain. It will follow the principles of decentralization, a distributed network, cryptography, etc
+We will eliminate many problems of the gambling industry by using the basic cryptoindustry concepts in "Bettex project"
+Bets with "BETTEX" will become more available, reliable and secure!
+
 
 - More information about [Bettex project](http://www.bettex.bet)
 
