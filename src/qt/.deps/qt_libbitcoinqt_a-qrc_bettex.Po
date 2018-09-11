@@ -1,0 +1,1 @@
+qt/qt_libbitcoinqt_a-qrc_bettex.o: qt/qrc_bettex.cpp

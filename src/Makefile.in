@@ -224,7 +224,7 @@ ARFLAGS = cru
 AM_V_AR = $(am__v_AR_@AM_V@)
 am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
 am__v_AR_0 = @echo "  AR      " $@;
-am__v_AR_1 =
+am__v_AR_1 = 
 crypto_libbitcoin_crypto_a_AR = $(AR) $(ARFLAGS)
 crypto_libbitcoin_crypto_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
@@ -534,11 +534,10 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 	qt/res/icons/tx_inout.png qt/res/icons/tx_input.png \
 	qt/res/icons/tx_output.png qt/res/icons/tx_mined.png \
 	qt/res/icons/unit_bettex.png qt/res/icons/unit_mbettex.png \
-	qt/res/icons/unit_ubettex.png \
-	qt/res/icons/unit_tbettex.png \
-	qt/res/icons/unit_tmbettex.png \
-	qt/res/icons/unit_tubettex.png qt/res/images/about.png \
-	qt/res/images/splash.png qt/res/images/splash_testnet.png \
+	qt/res/icons/unit_ubettex.png qt/res/icons/unit_tbettex.png \
+	qt/res/icons/unit_tmbettex.png qt/res/icons/unit_tubettex.png \
+	qt/res/images/about.png qt/res/images/splash.png \
+	qt/res/images/splash_testnet.png \
 	qt/res/images/bettex_logo_horizontal.png \
 	qt/res/images/downArrow.png qt/res/images/downArrow_small.png \
 	qt/res/images/upArrow_small.png \
@@ -748,7 +747,7 @@ libbitcoinconsensus_la_OBJECTS = $(am_libbitcoinconsensus_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
-am__v_lt_1 =
+am__v_lt_1 = 
 libbitcoinconsensus_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $(libbitcoinconsensus_la_LDFLAGS) \
@@ -760,39 +759,106 @@ libbitcoinconsensus_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 @BUILD_BITCOIN_UTILS_TRUE@	bettex-tx$(EXEEXT)
 @ENABLE_TESTS_TRUE@am__EXEEXT_3 = test/test_bettex$(EXEEXT)
 @ENABLE_QT_TRUE@am__EXEEXT_4 = qt/bettex-qt$(EXEEXT)
-@ENABLE_QT_TESTS_TRUE@am__EXEEXT_5 =  \
-@ENABLE_QT_TESTS_TRUE@	qt/test/test_bettex-qt$(EXEEXT)
+@ENABLE_QT_TESTS_TRUE@am__EXEEXT_5 = qt/test/test_bettex-qt$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
+am__bettex_cli_SOURCES_DIST = bettex-cli.cpp bettex-cli-res.rc
+@TARGET_WINDOWS_TRUE@am__objects_10 = bettex-cli-res.$(OBJEXT)
+am_bettex_cli_OBJECTS = bettex_cli-bettex-cli.$(OBJEXT) \
+	$(am__objects_10)
+bettex_cli_OBJECTS = $(am_bettex_cli_OBJECTS)
+bettex_cli_DEPENDENCIES = $(LIBBITCOIN_CLI) $(LIBBITCOIN_UTIL) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+bettex_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
+	$(CXXFLAGS) $(bettex_cli_LDFLAGS) $(LDFLAGS) -o $@
+am_bettex_tx_OBJECTS = bettex_tx-bettex-tx.$(OBJEXT)
+bettex_tx_OBJECTS = $(am_bettex_tx_OBJECTS)
+bettex_tx_DEPENDENCIES = $(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_COMMON) \
+	$(LIBBITCOIN_ZEROCOIN) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
+	$(LIBSECP256K1) $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+bettex_tx_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
+	$(CXXFLAGS) $(bettex_tx_LDFLAGS) $(LDFLAGS) -o $@
+am__bettexd_SOURCES_DIST = bettexd.cpp bettexd-res.rc
+@TARGET_WINDOWS_TRUE@am__objects_11 = bettexd-res.$(OBJEXT)
+am_bettexd_OBJECTS = bettexd-bettexd.$(OBJEXT) $(am__objects_11)
+bettexd_OBJECTS = $(am_bettexd_OBJECTS)
+am__DEPENDENCIES_2 = $(am__append_2)
+am__DEPENDENCIES_3 = $(am__append_3)
+@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_4 = $(LIBBITCOIN_ZMQ) \
+@ENABLE_ZMQ_TRUE@	$(am__DEPENDENCIES_1)
+bettexd_DEPENDENCIES = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
+	$(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
+	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(am__DEPENDENCIES_2) \
+	$(am__DEPENDENCIES_3) $(LIBSECP256K1) $(am__DEPENDENCIES_4) \
+	$(am__append_11) $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+bettexd_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
+	$(CXXFLAGS) $(bettexd_LDFLAGS) $(LDFLAGS) -o $@
+am__qt_bettex_qt_SOURCES_DIST = qt/bettex.cpp qt/macdockiconhandler.mm \
+	qt/macnotificationhandler.mm qt/res/bettex-qt-res.rc
+@ENABLE_QT_TRUE@am__objects_12 =  \
+@ENABLE_QT_TRUE@	qt/qt_bettex_qt-macdockiconhandler.$(OBJEXT) \
+@ENABLE_QT_TRUE@	qt/qt_bettex_qt-macnotificationhandler.$(OBJEXT)
+@ENABLE_QT_TRUE@@TARGET_DARWIN_TRUE@am__objects_13 =  \
+@ENABLE_QT_TRUE@@TARGET_DARWIN_TRUE@	$(am__objects_12)
+@ENABLE_QT_TRUE@am__objects_14 = qt/res/bettex-qt-res.$(OBJEXT)
+@ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@am__objects_15 =  \
+@ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@	$(am__objects_14)
+@ENABLE_QT_TRUE@am_qt_bettex_qt_OBJECTS =  \
+@ENABLE_QT_TRUE@	qt/qt_bettex_qt-bettex.$(OBJEXT) \
+@ENABLE_QT_TRUE@	$(am__objects_13) $(am__objects_15)
+qt_bettex_qt_OBJECTS = $(am_qt_bettex_qt_OBJECTS)
+@ENABLE_QT_TRUE@@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_5 =  \
+@ENABLE_QT_TRUE@@ENABLE_ZMQ_TRUE@	$(LIBBITCOIN_ZMQ) \
+@ENABLE_QT_TRUE@@ENABLE_ZMQ_TRUE@	$(am__DEPENDENCIES_1)
+@ENABLE_QT_TRUE@qt_bettex_qt_DEPENDENCIES = qt/libbitcoinqt.a \
+@ENABLE_QT_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_28) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_5) $(LIBBITCOIN_CLI) \
+@ENABLE_QT_TRUE@	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
+@ENABLE_QT_TRUE@	$(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) \
+@ENABLE_QT_TRUE@	$(LIBBITCOIN_ZEROCOIN) $(am__DEPENDENCIES_2) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_3) $(am__DEPENDENCIES_1) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+@ENABLE_QT_TRUE@	$(LIBSECP256K1) $(am__DEPENDENCIES_1) \
+@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1)
+qt_bettex_qt_LINK = $(LIBTOOL) $(AM_V_lt) $(qt_bettex_qt_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(OBJCXXLD) $(AM_OBJCXXFLAGS) \
+	$(OBJCXXFLAGS) $(qt_bettex_qt_LDFLAGS) $(LDFLAGS) -o $@
 am__qt_test_test_bettex_qt_SOURCES_DIST = qt/test/test_main.cpp \
 	qt/test/uritests.cpp qt/test/uritests.h \
 	qt/test/paymentrequestdata.h qt/test/paymentservertests.h \
 	qt/test/paymentservertests.cpp
-@ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__objects_10 = qt/test/qt_test_test_bettex_qt-paymentservertests.$(OBJEXT)
+@ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__objects_16 = qt/test/qt_test_test_bettex_qt-paymentservertests.$(OBJEXT)
 @ENABLE_QT_TESTS_TRUE@am_qt_test_test_bettex_qt_OBJECTS = qt/test/qt_test_test_bettex_qt-test_main.$(OBJEXT) \
 @ENABLE_QT_TESTS_TRUE@	qt/test/qt_test_test_bettex_qt-uritests.$(OBJEXT) \
-@ENABLE_QT_TESTS_TRUE@	$(am__objects_1) $(am__objects_10)
-@ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__objects_11 = qt/test/qt_test_test_bettex_qt-moc_paymentservertests.$(OBJEXT)
-@ENABLE_QT_TESTS_TRUE@am__objects_12 = qt/test/qt_test_test_bettex_qt-moc_uritests.$(OBJEXT) \
-@ENABLE_QT_TESTS_TRUE@	$(am__objects_11)
+@ENABLE_QT_TESTS_TRUE@	$(am__objects_1) $(am__objects_16)
+@ENABLE_QT_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__objects_17 = qt/test/qt_test_test_bettex_qt-moc_paymentservertests.$(OBJEXT)
+@ENABLE_QT_TESTS_TRUE@am__objects_18 = qt/test/qt_test_test_bettex_qt-moc_uritests.$(OBJEXT) \
+@ENABLE_QT_TESTS_TRUE@	$(am__objects_17)
 @ENABLE_QT_TESTS_TRUE@nodist_qt_test_test_bettex_qt_OBJECTS =  \
-@ENABLE_QT_TESTS_TRUE@	$(am__objects_12)
-qt_test_test_bettex_qt_OBJECTS =  \
-	$(am_qt_test_test_bettex_qt_OBJECTS) \
+@ENABLE_QT_TESTS_TRUE@	$(am__objects_18)
+qt_test_test_bettex_qt_OBJECTS = $(am_qt_test_test_bettex_qt_OBJECTS) \
 	$(nodist_qt_test_test_bettex_qt_OBJECTS)
-@ENABLE_QT_TESTS_TRUE@@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_2 =  \
+@ENABLE_QT_TESTS_TRUE@@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_6 =  \
 @ENABLE_QT_TESTS_TRUE@@ENABLE_ZMQ_TRUE@	$(LIBBITCOIN_ZMQ) \
 @ENABLE_QT_TESTS_TRUE@@ENABLE_ZMQ_TRUE@	$(am__DEPENDENCIES_1)
-am__DEPENDENCIES_3 = $(am__append_2)
-am__DEPENDENCIES_4 = $(am__append_3)
 @ENABLE_QT_TESTS_TRUE@qt_test_test_bettex_qt_DEPENDENCIES =  \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOINQT) $(LIBBITCOIN_SERVER) \
-@ENABLE_QT_TESTS_TRUE@	$(am__append_35) $(am__DEPENDENCIES_2) \
+@ENABLE_QT_TESTS_TRUE@	$(am__append_35) $(am__DEPENDENCIES_6) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UNIVALUE) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_ZEROCOIN) \
+@ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_2) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_3) \
-@ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_4) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_1) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_1) \
 @ENABLE_QT_TESTS_TRUE@	$(am__DEPENDENCIES_1) \
@@ -809,40 +875,6 @@ qt_test_test_bettex_qt_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $(qt_test_test_bettex_qt_LDFLAGS) \
 	$(LDFLAGS) -o $@
-am__qt_bettex_qt_SOURCES_DIST = qt/bettex.cpp \
-	qt/macdockiconhandler.mm qt/macnotificationhandler.mm \
-	qt/res/bettex-qt-res.rc
-@ENABLE_QT_TRUE@am__objects_13 = qt/qt_bettex_qt-macdockiconhandler.$(OBJEXT) \
-@ENABLE_QT_TRUE@	qt/qt_bettex_qt-macnotificationhandler.$(OBJEXT)
-@ENABLE_QT_TRUE@@TARGET_DARWIN_TRUE@am__objects_14 =  \
-@ENABLE_QT_TRUE@@TARGET_DARWIN_TRUE@	$(am__objects_13)
-@ENABLE_QT_TRUE@am__objects_15 = qt/res/bettex-qt-res.$(OBJEXT)
-@ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@am__objects_16 =  \
-@ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@	$(am__objects_15)
-@ENABLE_QT_TRUE@am_qt_bettex_qt_OBJECTS =  \
-@ENABLE_QT_TRUE@	qt/qt_bettex_qt-bettex.$(OBJEXT) \
-@ENABLE_QT_TRUE@	$(am__objects_14) $(am__objects_16)
-qt_bettex_qt_OBJECTS = $(am_qt_bettex_qt_OBJECTS)
-@ENABLE_QT_TRUE@@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_5 =  \
-@ENABLE_QT_TRUE@@ENABLE_ZMQ_TRUE@	$(LIBBITCOIN_ZMQ) \
-@ENABLE_QT_TRUE@@ENABLE_ZMQ_TRUE@	$(am__DEPENDENCIES_1)
-@ENABLE_QT_TRUE@qt_bettex_qt_DEPENDENCIES = qt/libbitcoinqt.a \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_28) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_5) $(LIBBITCOIN_CLI) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) \
-@ENABLE_QT_TRUE@	$(LIBBITCOIN_ZEROCOIN) $(am__DEPENDENCIES_3) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_4) $(am__DEPENDENCIES_1) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-@ENABLE_QT_TRUE@	$(LIBSECP256K1) $(am__DEPENDENCIES_1) \
-@ENABLE_QT_TRUE@	$(am__DEPENDENCIES_1)
-qt_bettex_qt_LINK = $(LIBTOOL) $(AM_V_lt) \
-	$(qt_bettex_qt_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link \
-	$(OBJCXXLD) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS) \
-	$(qt_bettex_qt_LDFLAGS) $(LDFLAGS) -o $@
 am__test_test_bettex_SOURCES_DIST =  \
 	test/zerocoin_implementation_tests.cpp \
 	test/zerocoin_denomination_tests.cpp \
@@ -873,10 +905,10 @@ am__test_test_bettex_SOURCES_DIST =  \
 	test/data/script_invalid.json test/data/tx_invalid.json \
 	test/data/tx_valid.json test/data/sighash.json \
 	test/data/alertTests.raw
-@ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__objects_17 = test/test_test_bettex-accounting_tests.$(OBJEXT) \
+@ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@am__objects_19 = test/test_test_bettex-accounting_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@	test/test_test_bettex-wallet_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@@ENABLE_WALLET_TRUE@	test/test_test_bettex-rpc_wallet_tests.$(OBJEXT)
-@ENABLE_TESTS_TRUE@am__objects_18 = test/test_test_bettex-zerocoin_implementation_tests.$(OBJEXT) \
+@ENABLE_TESTS_TRUE@am__objects_20 = test/test_test_bettex-zerocoin_implementation_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@	test/test_test_bettex-zerocoin_denomination_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@	test/test_test_bettex-zerocoin_transactions_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@	test/test_test_bettex-benchmark_zerocoin.$(OBJEXT) \
@@ -917,69 +949,33 @@ am__test_test_bettex_SOURCES_DIST =  \
 @ENABLE_TESTS_TRUE@	test/test_test_bettex-uint256_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@	test/test_test_bettex-univalue_tests.$(OBJEXT) \
 @ENABLE_TESTS_TRUE@	test/test_test_bettex-util_tests.$(OBJEXT) \
-@ENABLE_TESTS_TRUE@	$(am__objects_17)
-@ENABLE_TESTS_TRUE@am_test_test_bettex_OBJECTS = $(am__objects_18) \
-@ENABLE_TESTS_TRUE@	$(am__objects_1) $(am__objects_1)
-@ENABLE_TESTS_TRUE@am__objects_19 = $(am__objects_1) $(am__objects_1)
-@ENABLE_TESTS_TRUE@nodist_test_test_bettex_OBJECTS =  \
 @ENABLE_TESTS_TRUE@	$(am__objects_19)
+@ENABLE_TESTS_TRUE@am_test_test_bettex_OBJECTS = $(am__objects_20) \
+@ENABLE_TESTS_TRUE@	$(am__objects_1) $(am__objects_1)
+@ENABLE_TESTS_TRUE@am__objects_21 = $(am__objects_1) $(am__objects_1)
+@ENABLE_TESTS_TRUE@nodist_test_test_bettex_OBJECTS =  \
+@ENABLE_TESTS_TRUE@	$(am__objects_21)
 test_test_bettex_OBJECTS = $(am_test_test_bettex_OBJECTS) \
 	$(nodist_test_test_bettex_OBJECTS)
-@BUILD_BITCOIN_LIBS_TRUE@am__DEPENDENCIES_6 = libbitcoinconsensus.la
-@ENABLE_TESTS_TRUE@@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_7 =  \
+@BUILD_BITCOIN_LIBS_TRUE@am__DEPENDENCIES_7 = libbitcoinconsensus.la
+@ENABLE_TESTS_TRUE@@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_8 =  \
 @ENABLE_TESTS_TRUE@@ENABLE_ZMQ_TRUE@	$(am__DEPENDENCIES_1)
 @ENABLE_TESTS_TRUE@test_test_bettex_DEPENDENCIES =  \
 @ENABLE_TESTS_TRUE@	$(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) \
 @ENABLE_TESTS_TRUE@	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
 @ENABLE_TESTS_TRUE@	$(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) \
 @ENABLE_TESTS_TRUE@	$(LIBBITCOIN_ZEROCOIN) \
-@ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_3) $(am__DEPENDENCIES_4) \
+@ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_3) \
 @ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 @ENABLE_TESTS_TRUE@	$(LIBSECP256K1) $(am__DEPENDENCIES_1) \
 @ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1) $(am__append_20) \
-@ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_6) $(am__DEPENDENCIES_1) \
+@ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_7) $(am__DEPENDENCIES_1) \
 @ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-@ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_7)
+@ENABLE_TESTS_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_8)
 test_test_bettex_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(AM_CXXFLAGS) $(CXXFLAGS) $(test_test_bettex_LDFLAGS) \
 	$(LDFLAGS) -o $@
-am__bettex_cli_SOURCES_DIST = bettex-cli.cpp bettex-cli-res.rc
-@TARGET_WINDOWS_TRUE@am__objects_20 = bettex-cli-res.$(OBJEXT)
-am_bettex_cli_OBJECTS = bettex_cli-bettex-cli.$(OBJEXT) \
-	$(am__objects_20)
-bettex_cli_OBJECTS = $(am_bettex_cli_OBJECTS)
-bettex_cli_DEPENDENCIES = $(LIBBITCOIN_CLI) $(LIBBITCOIN_UTIL) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-bettex_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
-	$(CXXFLAGS) $(bettex_cli_LDFLAGS) $(LDFLAGS) -o $@
-am_bettex_tx_OBJECTS = bettex_tx-bettex-tx.$(OBJEXT)
-bettex_tx_OBJECTS = $(am_bettex_tx_OBJECTS)
-bettex_tx_DEPENDENCIES = $(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_COMMON) \
-	$(LIBBITCOIN_ZEROCOIN) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
-	$(LIBSECP256K1) $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-bettex_tx_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
-	$(CXXFLAGS) $(bettex_tx_LDFLAGS) $(LDFLAGS) -o $@
-am__bettexd_SOURCES_DIST = bettexd.cpp bettexd-res.rc
-@TARGET_WINDOWS_TRUE@am__objects_21 = bettexd-res.$(OBJEXT)
-am_bettexd_OBJECTS = bettexd-bettexd.$(OBJEXT) $(am__objects_21)
-bettexd_OBJECTS = $(am_bettexd_OBJECTS)
-@ENABLE_ZMQ_TRUE@am__DEPENDENCIES_8 = $(LIBBITCOIN_ZMQ) \
-@ENABLE_ZMQ_TRUE@	$(am__DEPENDENCIES_1)
-bettexd_DEPENDENCIES = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
-	$(LIBBITCOIN_UNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
-	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(am__DEPENDENCIES_3) \
-	$(am__DEPENDENCIES_4) $(LIBSECP256K1) $(am__DEPENDENCIES_8) \
-	$(am__append_11) $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
-bettexd_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
-	$(CXXFLAGS) $(bettexd_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -987,11 +983,11 @@ am__v_P_1 = :
 AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN     " $@;
-am__v_GEN_1 =
+am__v_GEN_1 = 
 AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
-am__v_at_1 =
+am__v_at_1 = 
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/src/config
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -1005,7 +1001,7 @@ LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CC = $(am__v_CC_@AM_V@)
 am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
 am__v_CC_0 = @echo "  CC      " $@;
-am__v_CC_1 =
+am__v_CC_1 = 
 CCLD = $(CC)
 LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -1013,7 +1009,7 @@ LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
-am__v_CCLD_1 =
+am__v_CCLD_1 = 
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
@@ -1023,7 +1019,7 @@ LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXX = $(am__v_CXX_@AM_V@)
 am__v_CXX_ = $(am__v_CXX_@AM_DEFAULT_V@)
 am__v_CXX_0 = @echo "  CXX     " $@;
-am__v_CXX_1 =
+am__v_CXX_1 = 
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -1031,7 +1027,7 @@ CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
-am__v_CXXLD_1 =
+am__v_CXXLD_1 = 
 OBJCXXCOMPILE = $(OBJCXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS)
 LTOBJCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
@@ -1041,7 +1037,7 @@ LTOBJCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
 AM_V_OBJCXX = $(am__v_OBJCXX_@AM_V@)
 am__v_OBJCXX_ = $(am__v_OBJCXX_@AM_DEFAULT_V@)
 am__v_OBJCXX_0 = @echo "  OBJCXX  " $@;
-am__v_OBJCXX_1 =
+am__v_OBJCXX_1 = 
 OBJCXXLD = $(OBJCXX)
 OBJCXXLINK = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(OBJCXXLD) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS) \
@@ -1049,7 +1045,7 @@ OBJCXXLINK = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 AM_V_OBJCXXLD = $(am__v_OBJCXXLD_@AM_V@)
 am__v_OBJCXXLD_ = $(am__v_OBJCXXLD_@AM_DEFAULT_V@)
 am__v_OBJCXXLD_0 = @echo "  OBJCXXLD" $@;
-am__v_OBJCXXLD_1 =
+am__v_OBJCXXLD_1 = 
 SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(libbitcoin_cli_a_SOURCES) $(libbitcoin_common_a_SOURCES) \
 	$(libbitcoin_server_a_SOURCES) $(libbitcoin_util_a_SOURCES) \
@@ -1059,12 +1055,11 @@ SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(qt_libbitcoinqt_a_SOURCES) \
 	$(nodist_qt_libbitcoinqt_a_SOURCES) \
 	$(univalue_libbitcoin_univalue_a_SOURCES) \
-	$(libbitcoinconsensus_la_SOURCES) \
-	$(qt_test_test_bettex_qt_SOURCES) \
+	$(libbitcoinconsensus_la_SOURCES) $(bettex_cli_SOURCES) \
+	$(bettex_tx_SOURCES) $(bettexd_SOURCES) \
+	$(qt_bettex_qt_SOURCES) $(qt_test_test_bettex_qt_SOURCES) \
 	$(nodist_qt_test_test_bettex_qt_SOURCES) \
-	$(qt_bettex_qt_SOURCES) $(test_test_bettex_SOURCES) \
-	$(nodist_test_test_bettex_SOURCES) $(bettex_cli_SOURCES) \
-	$(bettex_tx_SOURCES) $(bettexd_SOURCES)
+	$(test_test_bettex_SOURCES) $(nodist_test_test_bettex_SOURCES)
 DIST_SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(libbitcoin_cli_a_SOURCES) $(libbitcoin_common_a_SOURCES) \
 	$(libbitcoin_server_a_SOURCES) \
@@ -1075,11 +1070,10 @@ DIST_SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(am__qt_libbitcoinqt_a_SOURCES_DIST) \
 	$(univalue_libbitcoin_univalue_a_SOURCES) \
 	$(am__libbitcoinconsensus_la_SOURCES_DIST) \
-	$(am__qt_test_test_bettex_qt_SOURCES_DIST) \
-	$(am__qt_bettex_qt_SOURCES_DIST) \
-	$(am__test_test_bettex_SOURCES_DIST) \
 	$(am__bettex_cli_SOURCES_DIST) $(bettex_tx_SOURCES) \
-	$(am__bettexd_SOURCES_DIST)
+	$(am__bettexd_SOURCES_DIST) $(am__qt_bettex_qt_SOURCES_DIST) \
+	$(am__qt_test_test_bettex_qt_SOURCES_DIST) \
+	$(am__test_test_bettex_SOURCES_DIST)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -1593,7 +1587,7 @@ EXTRA_LIBRARIES = crypto/libbitcoin_crypto.a libbitcoin_util.a \
 	libbitcoin_cli.a $(am__append_5) $(am__append_6) \
 	$(am__append_24)
 @BUILD_BITCOIN_LIBS_TRUE@lib_LTLIBRARIES = libbitcoinconsensus.la
-@BUILD_BITCOIN_LIBS_FALSE@LIBBITCOIN_CONSENSUS =
+@BUILD_BITCOIN_LIBS_FALSE@LIBBITCOIN_CONSENSUS = 
 @BUILD_BITCOIN_LIBS_TRUE@LIBBITCOIN_CONSENSUS = libbitcoinconsensus.la
 # bettex core #
 BITCOIN_CORE_H = \
@@ -2362,8 +2356,8 @@ EXTRA_DIST = leveldb $(am__append_18)
 @ENABLE_QT_TRUE@qt_bettex_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
 @ENABLE_QT_TRUE@  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-@ENABLE_QT_TRUE@qt_bettex_qt_SOURCES = qt/bettex.cpp \
-@ENABLE_QT_TRUE@	$(am__append_26) $(am__append_27)
+@ENABLE_QT_TRUE@qt_bettex_qt_SOURCES = qt/bettex.cpp $(am__append_26) \
+@ENABLE_QT_TRUE@	$(am__append_27)
 @ENABLE_QT_TRUE@qt_bettex_qt_LDADD = qt/libbitcoinqt.a \
 @ENABLE_QT_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_28) \
 @ENABLE_QT_TRUE@	$(am__append_29) $(LIBBITCOIN_CLI) \
@@ -2396,11 +2390,11 @@ EXTRA_DIST = leveldb $(am__append_18)
 @ENABLE_QT_TESTS_TRUE@	qt/test/uritests.cpp $(TEST_QT_H) \
 @ENABLE_QT_TESTS_TRUE@	$(am__append_34)
 @ENABLE_QT_TESTS_TRUE@nodist_qt_test_test_bettex_qt_SOURCES = $(TEST_QT_MOC_CPP)
-@ENABLE_QT_TESTS_TRUE@qt_test_test_bettex_qt_LDADD =  \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOINQT) $(LIBBITCOIN_SERVER) \
-@ENABLE_QT_TESTS_TRUE@	$(am__append_35) $(am__append_36) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
-@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
+@ENABLE_QT_TESTS_TRUE@qt_test_test_bettex_qt_LDADD = $(LIBBITCOINQT) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_SERVER) $(am__append_35) \
+@ENABLE_QT_TESTS_TRUE@	$(am__append_36) $(LIBBITCOIN_CLI) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
+@ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_CRYPTO) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_UNIVALUE) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBBITCOIN_ZEROCOIN) $(LIBLEVELDB) \
 @ENABLE_QT_TESTS_TRUE@	$(LIBMEMENV) $(BOOST_LIBS) \
@@ -2513,7 +2507,7 @@ crypto/libbitcoin_crypto.a: $(crypto_libbitcoin_crypto_a_OBJECTS) $(crypto_libbi
 	$(AM_V_AR)$(crypto_libbitcoin_crypto_a_AR) crypto/libbitcoin_crypto.a $(crypto_libbitcoin_crypto_a_OBJECTS) $(crypto_libbitcoin_crypto_a_LIBADD)
 	$(AM_V_at)$(RANLIB) crypto/libbitcoin_crypto.a
 
-libbitcoin_cli.a: $(libbitcoin_cli_a_OBJECTS) $(libbitcoin_cli_a_DEPENDENCIES) $(EXTRA_libbitcoin_cli_a_DEPENDENCIES)
+libbitcoin_cli.a: $(libbitcoin_cli_a_OBJECTS) $(libbitcoin_cli_a_DEPENDENCIES) $(EXTRA_libbitcoin_cli_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_cli.a
 	$(AM_V_AR)$(libbitcoin_cli_a_AR) libbitcoin_cli.a $(libbitcoin_cli_a_OBJECTS) $(libbitcoin_cli_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_cli.a
@@ -2549,14 +2543,14 @@ script/libbitcoin_common_a-standard.$(OBJEXT): script/$(am__dirstamp) \
 script/libbitcoin_common_a-script_error.$(OBJEXT):  \
 	script/$(am__dirstamp) script/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_common.a: $(libbitcoin_common_a_OBJECTS) $(libbitcoin_common_a_DEPENDENCIES) $(EXTRA_libbitcoin_common_a_DEPENDENCIES)
+libbitcoin_common.a: $(libbitcoin_common_a_OBJECTS) $(libbitcoin_common_a_DEPENDENCIES) $(EXTRA_libbitcoin_common_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_common.a
 	$(AM_V_AR)$(libbitcoin_common_a_AR) libbitcoin_common.a $(libbitcoin_common_a_OBJECTS) $(libbitcoin_common_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_common.a
 script/libbitcoin_server_a-sigcache.$(OBJEXT): script/$(am__dirstamp) \
 	script/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_server.a: $(libbitcoin_server_a_OBJECTS) $(libbitcoin_server_a_DEPENDENCIES) $(EXTRA_libbitcoin_server_a_DEPENDENCIES)
+libbitcoin_server.a: $(libbitcoin_server_a_OBJECTS) $(libbitcoin_server_a_DEPENDENCIES) $(EXTRA_libbitcoin_server_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_server.a
 	$(AM_V_AR)$(libbitcoin_server_a_AR) libbitcoin_server.a $(libbitcoin_server_a_OBJECTS) $(libbitcoin_server_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_server.a
@@ -2577,7 +2571,7 @@ compat/libbitcoin_util_a-glibc_compat.$(OBJEXT):  \
 compat/libbitcoin_util_a-glibcxx_compat.$(OBJEXT):  \
 	compat/$(am__dirstamp) compat/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_util.a: $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_DEPENDENCIES) $(EXTRA_libbitcoin_util_a_DEPENDENCIES)
+libbitcoin_util.a: $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_DEPENDENCIES) $(EXTRA_libbitcoin_util_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_util.a
 	$(AM_V_AR)$(libbitcoin_util_a_AR) libbitcoin_util.a $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_util.a
@@ -2585,7 +2579,7 @@ primitives/libbitcoin_wallet_a-zerocoin.$(OBJEXT):  \
 	primitives/$(am__dirstamp) \
 	primitives/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_wallet.a: $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_DEPENDENCIES) $(EXTRA_libbitcoin_wallet_a_DEPENDENCIES)
+libbitcoin_wallet.a: $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_DEPENDENCIES) $(EXTRA_libbitcoin_wallet_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_wallet.a
 	$(AM_V_AR)$(libbitcoin_wallet_a_AR) libbitcoin_wallet.a $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_wallet.a
@@ -2602,7 +2596,7 @@ zmq/libbitcoin_zmq_a-zmqnotificationinterface.$(OBJEXT):  \
 zmq/libbitcoin_zmq_a-zmqpublishnotifier.$(OBJEXT):  \
 	zmq/$(am__dirstamp) zmq/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_zmq.a: $(libbitcoin_zmq_a_OBJECTS) $(libbitcoin_zmq_a_DEPENDENCIES) $(EXTRA_libbitcoin_zmq_a_DEPENDENCIES)
+libbitcoin_zmq.a: $(libbitcoin_zmq_a_OBJECTS) $(libbitcoin_zmq_a_DEPENDENCIES) $(EXTRA_libbitcoin_zmq_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_zmq.a
 	$(AM_V_AR)$(libbitcoin_zmq_a_AR) libbitcoin_zmq.a $(libbitcoin_zmq_a_OBJECTS) $(libbitcoin_zmq_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_zmq.a
@@ -2859,8 +2853,8 @@ qt/qt_libbitcoinqt_a-paymentrequest.pb.$(OBJEXT): qt/$(am__dirstamp) \
 	qt/$(DEPDIR)/$(am__dirstamp)
 qt/qt_libbitcoinqt_a-qrc_bettex.$(OBJEXT): qt/$(am__dirstamp) \
 	qt/$(DEPDIR)/$(am__dirstamp)
-qt/qt_libbitcoinqt_a-qrc_bettex_locale.$(OBJEXT):  \
-	qt/$(am__dirstamp) qt/$(DEPDIR)/$(am__dirstamp)
+qt/qt_libbitcoinqt_a-qrc_bettex_locale.$(OBJEXT): qt/$(am__dirstamp) \
+	qt/$(DEPDIR)/$(am__dirstamp)
 
 qt/libbitcoinqt.a: $(qt_libbitcoinqt_a_OBJECTS) $(qt_libbitcoinqt_a_DEPENDENCIES) $(EXTRA_qt_libbitcoinqt_a_DEPENDENCIES) qt/$(am__dirstamp)
 	$(AM_V_at)-rm -f qt/libbitcoinqt.a
@@ -2944,7 +2938,7 @@ compat/libbitcoinconsensus_la-glibc_compat.lo: compat/$(am__dirstamp) \
 compat/libbitcoinconsensus_la-glibcxx_compat.lo:  \
 	compat/$(am__dirstamp) compat/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoinconsensus.la: $(libbitcoinconsensus_la_OBJECTS) $(libbitcoinconsensus_la_DEPENDENCIES) $(EXTRA_libbitcoinconsensus_la_DEPENDENCIES)
+libbitcoinconsensus.la: $(libbitcoinconsensus_la_OBJECTS) $(libbitcoinconsensus_la_DEPENDENCIES) $(EXTRA_libbitcoinconsensus_la_DEPENDENCIES) 
 	$(AM_V_CXXLD)$(libbitcoinconsensus_la_LINK) $(am_libbitcoinconsensus_la_rpath) $(libbitcoinconsensus_la_OBJECTS) $(libbitcoinconsensus_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
@@ -2995,6 +2989,36 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
+
+bettex-cli$(EXEEXT): $(bettex_cli_OBJECTS) $(bettex_cli_DEPENDENCIES) $(EXTRA_bettex_cli_DEPENDENCIES) 
+	@rm -f bettex-cli$(EXEEXT)
+	$(AM_V_CXXLD)$(bettex_cli_LINK) $(bettex_cli_OBJECTS) $(bettex_cli_LDADD) $(LIBS)
+
+bettex-tx$(EXEEXT): $(bettex_tx_OBJECTS) $(bettex_tx_DEPENDENCIES) $(EXTRA_bettex_tx_DEPENDENCIES) 
+	@rm -f bettex-tx$(EXEEXT)
+	$(AM_V_CXXLD)$(bettex_tx_LINK) $(bettex_tx_OBJECTS) $(bettex_tx_LDADD) $(LIBS)
+
+bettexd$(EXEEXT): $(bettexd_OBJECTS) $(bettexd_DEPENDENCIES) $(EXTRA_bettexd_DEPENDENCIES) 
+	@rm -f bettexd$(EXEEXT)
+	$(AM_V_CXXLD)$(bettexd_LINK) $(bettexd_OBJECTS) $(bettexd_LDADD) $(LIBS)
+qt/qt_bettex_qt-bettex.$(OBJEXT): qt/$(am__dirstamp) \
+	qt/$(DEPDIR)/$(am__dirstamp)
+qt/qt_bettex_qt-macdockiconhandler.$(OBJEXT): qt/$(am__dirstamp) \
+	qt/$(DEPDIR)/$(am__dirstamp)
+qt/qt_bettex_qt-macnotificationhandler.$(OBJEXT): qt/$(am__dirstamp) \
+	qt/$(DEPDIR)/$(am__dirstamp)
+qt/res/$(am__dirstamp):
+	@$(MKDIR_P) qt/res
+	@: > qt/res/$(am__dirstamp)
+qt/res/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) qt/res/$(DEPDIR)
+	@: > qt/res/$(DEPDIR)/$(am__dirstamp)
+qt/res/bettex-qt-res.$(OBJEXT): qt/res/$(am__dirstamp) \
+	qt/res/$(DEPDIR)/$(am__dirstamp)
+
+qt/bettex-qt$(EXEEXT): $(qt_bettex_qt_OBJECTS) $(qt_bettex_qt_DEPENDENCIES) $(EXTRA_qt_bettex_qt_DEPENDENCIES) qt/$(am__dirstamp)
+	@rm -f qt/bettex-qt$(EXEEXT)
+	$(AM_V_OBJCXXLD)$(qt_bettex_qt_LINK) $(qt_bettex_qt_OBJECTS) $(qt_bettex_qt_LDADD) $(LIBS)
 qt/test/$(am__dirstamp):
 	@$(MKDIR_P) qt/test
 	@: > qt/test/$(am__dirstamp)
@@ -3015,24 +3039,6 @@ qt/test/qt_test_test_bettex_qt-moc_paymentservertests.$(OBJEXT):  \
 qt/test/test_bettex-qt$(EXEEXT): $(qt_test_test_bettex_qt_OBJECTS) $(qt_test_test_bettex_qt_DEPENDENCIES) $(EXTRA_qt_test_test_bettex_qt_DEPENDENCIES) qt/test/$(am__dirstamp)
 	@rm -f qt/test/test_bettex-qt$(EXEEXT)
 	$(AM_V_CXXLD)$(qt_test_test_bettex_qt_LINK) $(qt_test_test_bettex_qt_OBJECTS) $(qt_test_test_bettex_qt_LDADD) $(LIBS)
-qt/qt_bettex_qt-bettex.$(OBJEXT): qt/$(am__dirstamp) \
-	qt/$(DEPDIR)/$(am__dirstamp)
-qt/qt_bettex_qt-macdockiconhandler.$(OBJEXT): qt/$(am__dirstamp) \
-	qt/$(DEPDIR)/$(am__dirstamp)
-qt/qt_bettex_qt-macnotificationhandler.$(OBJEXT):  \
-	qt/$(am__dirstamp) qt/$(DEPDIR)/$(am__dirstamp)
-qt/res/$(am__dirstamp):
-	@$(MKDIR_P) qt/res
-	@: > qt/res/$(am__dirstamp)
-qt/res/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) qt/res/$(DEPDIR)
-	@: > qt/res/$(DEPDIR)/$(am__dirstamp)
-qt/res/bettex-qt-res.$(OBJEXT): qt/res/$(am__dirstamp) \
-	qt/res/$(DEPDIR)/$(am__dirstamp)
-
-qt/bettex-qt$(EXEEXT): $(qt_bettex_qt_OBJECTS) $(qt_bettex_qt_DEPENDENCIES) $(EXTRA_qt_bettex_qt_DEPENDENCIES) qt/$(am__dirstamp)
-	@rm -f qt/bettex-qt$(EXEEXT)
-	$(AM_V_OBJCXXLD)$(qt_bettex_qt_LINK) $(qt_bettex_qt_OBJECTS) $(qt_bettex_qt_LDADD) $(LIBS)
 test/$(am__dirstamp):
 	@$(MKDIR_P) test
 	@: > test/$(am__dirstamp)
@@ -3051,8 +3057,8 @@ test/test_test_bettex-tutorial_zerocoin.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-libzerocoin_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-allocator_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-allocator_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-base32_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-base58_tests.$(OBJEXT): test/$(am__dirstamp) \
@@ -3065,8 +3071,8 @@ test/test_test_bettex-Checkpoints_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-coins_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-compress_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-compress_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-crypto_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-DoS_tests.$(OBJEXT): test/$(am__dirstamp) \
@@ -3083,8 +3089,8 @@ test/test_test_bettex-mempool_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-mruset_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-multisig_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-multisig_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-netbase_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-pmt_tests.$(OBJEXT): test/$(am__dirstamp) \
@@ -3097,28 +3103,28 @@ test/test_test_bettex-script_P2SH_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-script_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-scriptnum_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-serialize_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-scriptnum_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-serialize_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-sighash_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-sigopcount_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-skiplist_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-skiplist_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-test_bettex.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-timedata_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-timedata_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-torcontrol_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-transaction_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-uint256_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_bettex-univalue_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_bettex-univalue_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-util_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_bettex-accounting_tests.$(OBJEXT):  \
@@ -3131,18 +3137,6 @@ test/test_test_bettex-rpc_wallet_tests.$(OBJEXT):  \
 test/test_bettex$(EXEEXT): $(test_test_bettex_OBJECTS) $(test_test_bettex_DEPENDENCIES) $(EXTRA_test_test_bettex_DEPENDENCIES) test/$(am__dirstamp)
 	@rm -f test/test_bettex$(EXEEXT)
 	$(AM_V_CXXLD)$(test_test_bettex_LINK) $(test_test_bettex_OBJECTS) $(test_test_bettex_LDADD) $(LIBS)
-
-bettex-cli$(EXEEXT): $(bettex_cli_OBJECTS) $(bettex_cli_DEPENDENCIES) $(EXTRA_bettex_cli_DEPENDENCIES)
-	@rm -f bettex-cli$(EXEEXT)
-	$(AM_V_CXXLD)$(bettex_cli_LINK) $(bettex_cli_OBJECTS) $(bettex_cli_LDADD) $(LIBS)
-
-bettex-tx$(EXEEXT): $(bettex_tx_OBJECTS) $(bettex_tx_DEPENDENCIES) $(EXTRA_bettex_tx_DEPENDENCIES)
-	@rm -f bettex-tx$(EXEEXT)
-	$(AM_V_CXXLD)$(bettex_tx_LINK) $(bettex_tx_OBJECTS) $(bettex_tx_LDADD) $(LIBS)
-
-bettexd$(EXEEXT): $(bettexd_OBJECTS) $(bettexd_DEPENDENCIES) $(EXTRA_bettexd_DEPENDENCIES)
-	@rm -f bettexd$(EXEEXT)
-	$(AM_V_CXXLD)$(bettexd_LINK) $(bettexd_OBJECTS) $(bettexd_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -3165,6 +3159,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bettex_cli-bettex-cli.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bettex_tx-bettex-tx.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bettexd-bettexd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_common_a-accumulatormap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_common_a-accumulators.Po@am__quote@
@@ -3253,9 +3250,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-pubkey.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-uint256.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-utilstrencodings.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bettex_cli-bettex-cli.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bettex_tx-bettex-tx.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bettexd-bettexd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@compat/$(DEPDIR)/libbitcoin_util_a-glibc_compat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@compat/$(DEPDIR)/libbitcoin_util_a-glibc_sanity.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@compat/$(DEPDIR)/libbitcoin_util_a-glibcxx_compat.Po@am__quote@
@@ -3311,6 +3305,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@primitives/$(DEPDIR)/libbitcoin_common_a-zerocoin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@primitives/$(DEPDIR)/libbitcoin_wallet_a-zerocoin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@primitives/$(DEPDIR)/libbitcoinconsensus_la-transaction.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_bettex_qt-bettex.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_bettex_qt-macdockiconhandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_bettex_qt-macnotificationhandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-addressbookpage.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-addresstablemodel.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-askpassphrasedialog.Po@am__quote@
@@ -3420,9 +3417,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-walletview.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-winshutdownmonitor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-zbettexcontroldialog.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_bettex_qt-macdockiconhandler.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_bettex_qt-macnotificationhandler.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_bettex_qt-bettex.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/test/$(DEPDIR)/qt_test_test_bettex_qt-moc_paymentservertests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/test/$(DEPDIR)/qt_test_test_bettex_qt-moc_uritests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/test/$(DEPDIR)/qt_test_test_bettex_qt-paymentservertests.Po@am__quote@
@@ -6973,6 +6967,62 @@ compat/libbitcoinconsensus_la-glibcxx_compat.lo: compat/glibcxx_compat.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o compat/libbitcoinconsensus_la-glibcxx_compat.lo `test -f 'compat/glibcxx_compat.cpp' || echo '$(srcdir)/'`compat/glibcxx_compat.cpp
 
+bettex_cli-bettex-cli.o: bettex-cli.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_cli-bettex-cli.o -MD -MP -MF $(DEPDIR)/bettex_cli-bettex-cli.Tpo -c -o bettex_cli-bettex-cli.o `test -f 'bettex-cli.cpp' || echo '$(srcdir)/'`bettex-cli.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_cli-bettex-cli.Tpo $(DEPDIR)/bettex_cli-bettex-cli.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-cli.cpp' object='bettex_cli-bettex-cli.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_cli-bettex-cli.o `test -f 'bettex-cli.cpp' || echo '$(srcdir)/'`bettex-cli.cpp
+
+bettex_cli-bettex-cli.obj: bettex-cli.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_cli-bettex-cli.obj -MD -MP -MF $(DEPDIR)/bettex_cli-bettex-cli.Tpo -c -o bettex_cli-bettex-cli.obj `if test -f 'bettex-cli.cpp'; then $(CYGPATH_W) 'bettex-cli.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-cli.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_cli-bettex-cli.Tpo $(DEPDIR)/bettex_cli-bettex-cli.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-cli.cpp' object='bettex_cli-bettex-cli.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_cli-bettex-cli.obj `if test -f 'bettex-cli.cpp'; then $(CYGPATH_W) 'bettex-cli.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-cli.cpp'; fi`
+
+bettex_tx-bettex-tx.o: bettex-tx.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_tx-bettex-tx.o -MD -MP -MF $(DEPDIR)/bettex_tx-bettex-tx.Tpo -c -o bettex_tx-bettex-tx.o `test -f 'bettex-tx.cpp' || echo '$(srcdir)/'`bettex-tx.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_tx-bettex-tx.Tpo $(DEPDIR)/bettex_tx-bettex-tx.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-tx.cpp' object='bettex_tx-bettex-tx.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_tx-bettex-tx.o `test -f 'bettex-tx.cpp' || echo '$(srcdir)/'`bettex-tx.cpp
+
+bettex_tx-bettex-tx.obj: bettex-tx.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_tx-bettex-tx.obj -MD -MP -MF $(DEPDIR)/bettex_tx-bettex-tx.Tpo -c -o bettex_tx-bettex-tx.obj `if test -f 'bettex-tx.cpp'; then $(CYGPATH_W) 'bettex-tx.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-tx.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_tx-bettex-tx.Tpo $(DEPDIR)/bettex_tx-bettex-tx.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-tx.cpp' object='bettex_tx-bettex-tx.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_tx-bettex-tx.obj `if test -f 'bettex-tx.cpp'; then $(CYGPATH_W) 'bettex-tx.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-tx.cpp'; fi`
+
+bettexd-bettexd.o: bettexd.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettexd-bettexd.o -MD -MP -MF $(DEPDIR)/bettexd-bettexd.Tpo -c -o bettexd-bettexd.o `test -f 'bettexd.cpp' || echo '$(srcdir)/'`bettexd.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettexd-bettexd.Tpo $(DEPDIR)/bettexd-bettexd.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettexd.cpp' object='bettexd-bettexd.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettexd-bettexd.o `test -f 'bettexd.cpp' || echo '$(srcdir)/'`bettexd.cpp
+
+bettexd-bettexd.obj: bettexd.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettexd-bettexd.obj -MD -MP -MF $(DEPDIR)/bettexd-bettexd.Tpo -c -o bettexd-bettexd.obj `if test -f 'bettexd.cpp'; then $(CYGPATH_W) 'bettexd.cpp'; else $(CYGPATH_W) '$(srcdir)/bettexd.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettexd-bettexd.Tpo $(DEPDIR)/bettexd-bettexd.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettexd.cpp' object='bettexd-bettexd.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettexd-bettexd.obj `if test -f 'bettexd.cpp'; then $(CYGPATH_W) 'bettexd.cpp'; else $(CYGPATH_W) '$(srcdir)/bettexd.cpp'; fi`
+
+qt/qt_bettex_qt-bettex.o: qt/bettex.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_bettex_qt-bettex.o -MD -MP -MF qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo -c -o qt/qt_bettex_qt-bettex.o `test -f 'qt/bettex.cpp' || echo '$(srcdir)/'`qt/bettex.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo qt/$(DEPDIR)/qt_bettex_qt-bettex.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/bettex.cpp' object='qt/qt_bettex_qt-bettex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_bettex_qt-bettex.o `test -f 'qt/bettex.cpp' || echo '$(srcdir)/'`qt/bettex.cpp
+
+qt/qt_bettex_qt-bettex.obj: qt/bettex.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_bettex_qt-bettex.obj -MD -MP -MF qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo -c -o qt/qt_bettex_qt-bettex.obj `if test -f 'qt/bettex.cpp'; then $(CYGPATH_W) 'qt/bettex.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/bettex.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo qt/$(DEPDIR)/qt_bettex_qt-bettex.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/bettex.cpp' object='qt/qt_bettex_qt-bettex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_bettex_qt-bettex.obj `if test -f 'qt/bettex.cpp'; then $(CYGPATH_W) 'qt/bettex.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/bettex.cpp'; fi`
+
 qt/test/qt_test_test_bettex_qt-test_main.o: qt/test/test_main.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_test_test_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/test/qt_test_test_bettex_qt-test_main.o -MD -MP -MF qt/test/$(DEPDIR)/qt_test_test_bettex_qt-test_main.Tpo -c -o qt/test/qt_test_test_bettex_qt-test_main.o `test -f 'qt/test/test_main.cpp' || echo '$(srcdir)/'`qt/test/test_main.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/test/$(DEPDIR)/qt_test_test_bettex_qt-test_main.Tpo qt/test/$(DEPDIR)/qt_test_test_bettex_qt-test_main.Po
@@ -7042,20 +7092,6 @@ qt/test/qt_test_test_bettex_qt-moc_paymentservertests.obj: qt/test/moc_paymentse
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/test/moc_paymentservertests.cpp' object='qt/test/qt_test_test_bettex_qt-moc_paymentservertests.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_test_test_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/test/qt_test_test_bettex_qt-moc_paymentservertests.obj `if test -f 'qt/test/moc_paymentservertests.cpp'; then $(CYGPATH_W) 'qt/test/moc_paymentservertests.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/test/moc_paymentservertests.cpp'; fi`
-
-qt/qt_bettex_qt-bettex.o: qt/bettex.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_bettex_qt-bettex.o -MD -MP -MF qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo -c -o qt/qt_bettex_qt-bettex.o `test -f 'qt/bettex.cpp' || echo '$(srcdir)/'`qt/bettex.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo qt/$(DEPDIR)/qt_bettex_qt-bettex.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/bettex.cpp' object='qt/qt_bettex_qt-bettex.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_bettex_qt-bettex.o `test -f 'qt/bettex.cpp' || echo '$(srcdir)/'`qt/bettex.cpp
-
-qt/qt_bettex_qt-bettex.obj: qt/bettex.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_bettex_qt-bettex.obj -MD -MP -MF qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo -c -o qt/qt_bettex_qt-bettex.obj `if test -f 'qt/bettex.cpp'; then $(CYGPATH_W) 'qt/bettex.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/bettex.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_bettex_qt-bettex.Tpo qt/$(DEPDIR)/qt_bettex_qt-bettex.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/bettex.cpp' object='qt/qt_bettex_qt-bettex.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_bettex_qt_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_bettex_qt-bettex.obj `if test -f 'qt/bettex.cpp'; then $(CYGPATH_W) 'qt/bettex.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/bettex.cpp'; fi`
 
 test/test_test_bettex-zerocoin_implementation_tests.o: test/zerocoin_implementation_tests.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_bettex_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test/test_test_bettex-zerocoin_implementation_tests.o -MD -MP -MF test/$(DEPDIR)/test_test_bettex-zerocoin_implementation_tests.Tpo -c -o test/test_test_bettex-zerocoin_implementation_tests.o `test -f 'test/zerocoin_implementation_tests.cpp' || echo '$(srcdir)/'`test/zerocoin_implementation_tests.cpp
@@ -7673,48 +7709,6 @@ test/test_test_bettex-rpc_wallet_tests.obj: test/rpc_wallet_tests.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_bettex_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test/test_test_bettex-rpc_wallet_tests.obj `if test -f 'test/rpc_wallet_tests.cpp'; then $(CYGPATH_W) 'test/rpc_wallet_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/test/rpc_wallet_tests.cpp'; fi`
 
-bettex_cli-bettex-cli.o: bettex-cli.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_cli-bettex-cli.o -MD -MP -MF $(DEPDIR)/bettex_cli-bettex-cli.Tpo -c -o bettex_cli-bettex-cli.o `test -f 'bettex-cli.cpp' || echo '$(srcdir)/'`bettex-cli.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_cli-bettex-cli.Tpo $(DEPDIR)/bettex_cli-bettex-cli.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-cli.cpp' object='bettex_cli-bettex-cli.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_cli-bettex-cli.o `test -f 'bettex-cli.cpp' || echo '$(srcdir)/'`bettex-cli.cpp
-
-bettex_cli-bettex-cli.obj: bettex-cli.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_cli-bettex-cli.obj -MD -MP -MF $(DEPDIR)/bettex_cli-bettex-cli.Tpo -c -o bettex_cli-bettex-cli.obj `if test -f 'bettex-cli.cpp'; then $(CYGPATH_W) 'bettex-cli.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-cli.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_cli-bettex-cli.Tpo $(DEPDIR)/bettex_cli-bettex-cli.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-cli.cpp' object='bettex_cli-bettex-cli.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_cli_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_cli-bettex-cli.obj `if test -f 'bettex-cli.cpp'; then $(CYGPATH_W) 'bettex-cli.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-cli.cpp'; fi`
-
-bettex_tx-bettex-tx.o: bettex-tx.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_tx-bettex-tx.o -MD -MP -MF $(DEPDIR)/bettex_tx-bettex-tx.Tpo -c -o bettex_tx-bettex-tx.o `test -f 'bettex-tx.cpp' || echo '$(srcdir)/'`bettex-tx.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_tx-bettex-tx.Tpo $(DEPDIR)/bettex_tx-bettex-tx.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-tx.cpp' object='bettex_tx-bettex-tx.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_tx-bettex-tx.o `test -f 'bettex-tx.cpp' || echo '$(srcdir)/'`bettex-tx.cpp
-
-bettex_tx-bettex-tx.obj: bettex-tx.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettex_tx-bettex-tx.obj -MD -MP -MF $(DEPDIR)/bettex_tx-bettex-tx.Tpo -c -o bettex_tx-bettex-tx.obj `if test -f 'bettex-tx.cpp'; then $(CYGPATH_W) 'bettex-tx.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-tx.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettex_tx-bettex-tx.Tpo $(DEPDIR)/bettex_tx-bettex-tx.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettex-tx.cpp' object='bettex_tx-bettex-tx.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettex_tx_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettex_tx-bettex-tx.obj `if test -f 'bettex-tx.cpp'; then $(CYGPATH_W) 'bettex-tx.cpp'; else $(CYGPATH_W) '$(srcdir)/bettex-tx.cpp'; fi`
-
-bettexd-bettexd.o: bettexd.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettexd-bettexd.o -MD -MP -MF $(DEPDIR)/bettexd-bettexd.Tpo -c -o bettexd-bettexd.o `test -f 'bettexd.cpp' || echo '$(srcdir)/'`bettexd.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettexd-bettexd.Tpo $(DEPDIR)/bettexd-bettexd.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettexd.cpp' object='bettexd-bettexd.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettexd-bettexd.o `test -f 'bettexd.cpp' || echo '$(srcdir)/'`bettexd.cpp
-
-bettexd-bettexd.obj: bettexd.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT bettexd-bettexd.obj -MD -MP -MF $(DEPDIR)/bettexd-bettexd.Tpo -c -o bettexd-bettexd.obj `if test -f 'bettexd.cpp'; then $(CYGPATH_W) 'bettexd.cpp'; else $(CYGPATH_W) '$(srcdir)/bettexd.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/bettexd-bettexd.Tpo $(DEPDIR)/bettexd-bettexd.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='bettexd.cpp' object='bettexd-bettexd.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(bettexd_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o bettexd-bettexd.obj `if test -f 'bettexd.cpp'; then $(CYGPATH_W) 'bettexd.cpp'; else $(CYGPATH_W) '$(srcdir)/bettexd.cpp'; fi`
-
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
@@ -8046,7 +8040,7 @@ check-TESTS:
 	log_list=`echo $$log_list`; trs_list=`echo $$trs_list`; \
 	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
 	exit $$?;
-recheck: all
+recheck: all 
 	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
 	@set +e; $(am__set_TESTS_bases); \
 	bases=`for i in $$bases; do echo $$i; done \
