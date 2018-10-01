@@ -256,7 +256,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
 		bool bFound = false;
 		
 		BOOST_FOREACH (CTxOut out, txNew.vout) {
-			if(out.nValue == treasuryAmount) {
+			if(out.nValue == treasuryAmount && out.scriptPubKey == treasuryPayee) {
 				bFound = true;  //correct treasury payment has been found
 				break;
 			}
