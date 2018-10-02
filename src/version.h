@@ -12,7 +12,7 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 71003; //new version with dev fee and new PoS maturity time 1.0.x
+static const int PROTOCOL_VERSION = 77077; //new version after fork 140 000 block
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
