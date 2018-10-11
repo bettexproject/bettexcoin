@@ -96,7 +96,7 @@ public:
     CMainParams()
     {
         networkID = CBaseChainParams::MAIN;
-        vTreasuryRewardAddress="BCSVcJpd9fAqDLGQ6hqTDE5yVxs7AeUe92";
+        vTreasuryRewardAddress="BGqSGN63DiCYw5wFng9eKHCjwZAU12yatR";
         strNetworkID = "main";
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -110,7 +110,7 @@ public:
         vAlertPubKey = ParseHex("04f0bf02407d2d4eb38d3461417c3d07476a11441b64546590747a260d041911151dd489709058c53a6ddad9928c4bc7b299fcabc8a54b1648a700feed1980dc31");
         nDefaultPort = 31470;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Bettex starting difficulty is 1 / 2^12
-        nSubsidyHalvingInterval = 210000;
+        nSubsidyHalvingInterval = 1000000; // Halving rewards every 1 mil blocks
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;

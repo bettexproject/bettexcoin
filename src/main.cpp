@@ -85,6 +85,7 @@ bool fAlerts = DEFAULT_ALERTS;
 static unsigned int nStakeMinAgeV1 = 6 * 60 * 60; // 6 hours
 static unsigned int nStakeMinAgeV2 = 12 * 60 * 60; // 12 hours after block 86400
 const int targetReadjustment_forkBlockHeight = 86400; //retargeting since 86400 block
+const int blockFork = 140000; //fork after 140 000 block
 
 int64_t nReserveBalance = 0;
 
@@ -103,7 +104,7 @@ unsigned int GetStakeMinAge(int nHeight)
 
 int GetMinPeerProtoVersion(int nHeight)
 {
-	return PROTOCOL_VERSION; //2.1.1 - always return new protocol version, forget about older blockchain.
+	return PROTOCOL_VERSION; // always return new protocol version, forget about older blockchain.
 }
 
 
@@ -2107,7 +2108,7 @@ int64_t GetBlockValue(int nHeight)
 	    if (nHeight == 0) {
 	        nSubsidy = 1000000 * COIN;  //genesis premine 1 000 000 coins
 	    } else if(nHeight == 1 ){
-	        nSubsidy = 100000 * COIN;  //1 000 for baunti
+	        nSubsidy = 100000 * COIN;  //100 000 for bounty
 	    } else if(nHeight > 1 && nHeight <= 800) { //PoW phase
 			nSubsidy = 1 * COIN;
 		} else if(nHeight > 800 && nHeight <= 1800) { //PoS phase
@@ -2122,12 +2123,10 @@ int64_t GetBlockValue(int nHeight)
 			nSubsidy = 8 * COIN;
     } else if(nHeight > 64800 && nHeight <= 122400) {
 			nSubsidy = 15 * COIN;
-    } else if(nHeight > 122400 && nHeight <= 216000) {
+    } else if(nHeight > 122400 && nHeight <= blockFork) {
 			nSubsidy = 29 * COIN;
-    } else if(nHeight > 216000 && nHeight <= 266000) {
-			nSubsidy = 58 * COIN;
-	    } else {
-	        nSubsidy = 50 * COIN;
+	  } else {
+	    nSubsidy = 4 * COIN;
 	    }
     }
 
@@ -2143,19 +2142,22 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
             return 0;
     }
 
-	// 80% for Masternodes
+	// rewards for Masternodes
 	if (nHeight <= 800) {
-	      ret = blockValue  / 100 * 0;
-	} else if (nHeight > 1) {
-		  ret = blockValue  / 100 * 80; //80%
-
+    ret = blockValue  / 100 * 0;
+	}
+  else if (nHeight > 1 && nHeight <= blockFork) {
+    ret = blockValue  / 100 * 80; //80%
+	}
+  else {
+    ret = blockValue  / 100 * 90; //90%
 	}
 
 
     return ret;
 }
 
-//Treasury blocks start from 43200 and then each 10080th block
+//Treasury blocks
 int nStartTreasuryBlock = 43200;
 int nTreasuryBlockStep = 10080;
 
@@ -2175,8 +2177,10 @@ int64_t GetTreasuryAward(int nHeight)
 	if(IsTreasuryBlock(nHeight)) {
 		if(nHeight == nStartTreasuryBlock)
 			return 200010 * COIN; //200,000 for the first treasury block, 10 - reward to PoS
-		else
+		else if(nHeight <= blockFork)
 			return 12510 * COIN; //12,500 for each next block
+    else if(nHeight > blockFork)
+      return 20010 * COIN; // 20,000 after fork
 	} else
 		return 0;
 }
