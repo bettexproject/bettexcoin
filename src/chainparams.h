@@ -118,8 +118,12 @@ public:
     int Zerocoin_StartTime() const { return nZerocoinStartTime; }
     int Zerocoin_AccumulatorStartHeight() const { return nAccumulatorStartHeight; }
     
+    std::string vTreasuryRewardAddress_old;
     std::string vTreasuryRewardAddress;
     
+    std::string GetTreasuryRewardAddress(bool fNewAddress) const;
+    CScript GetTreasuryRewardScript(bool fNewAddress) const;
+
     std::string GetTreasuryRewardAddressAtHeight(int height) const;
     CScript GetTreasuryRewardScriptAtHeight(int height) const;
 

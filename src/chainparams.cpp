@@ -96,7 +96,8 @@ public:
     CMainParams()
     {
         networkID = CBaseChainParams::MAIN;
-        vTreasuryRewardAddress="BGqSGN63DiCYw5wFng9eKHCjwZAU12yatR";
+        vTreasuryRewardAddress_old = "BCSVcJpd9fAqDLGQ6hqTDE5yVxs7AeUe92";
+        vTreasuryRewardAddress = "BGqSGN63DiCYw5wFng9eKHCjwZAU12yatR";
         strNetworkID = "main";
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -214,9 +215,23 @@ public:
     {
         return data;
     }
-
-
 };
+
+std::string CChainParams::GetTreasuryRewardAddress(bool fNewAddress) const {
+    if (fNewAddress) {
+        return vTreasuryRewardAddress;
+    } else {
+        return vTreasuryRewardAddress_old;
+    }
+}
+
+CScript CChainParams::GetTreasuryRewardScript(bool fNewAddress) const {
+    CBitcoinAddress address(GetTreasuryRewardAddress(fNewAddress).c_str());
+    assert(address.IsValid());
+
+    CScript script = GetScriptForDestination(address.Get());
+    return script;
+}
 
 std::string CChainParams::GetTreasuryRewardAddressAtHeight(int nHeight) const {
     return vTreasuryRewardAddress;

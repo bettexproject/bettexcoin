@@ -13,6 +13,7 @@
 #include "masternode.h"
 #include "masternodeman.h"
 #include "obfuscation.h"
+#include "spork.h"
 #include "util.h"
 #include "chainparams.h"
 #include "utilmoneystr.h"
@@ -562,7 +563,7 @@ void CBudgetManager::FillTreasuryBlockPayee(CMutableTransaction& txNew, CAmount 
     CScript payee;
  
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    payee = Params().GetTreasuryRewardScriptAtHeight(pindexPrev->nHeight);
+    payee = Params().GetTreasuryRewardScript(IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT));
     CAmount treasurePayment = blockValue - 10 * COIN;
 
 
