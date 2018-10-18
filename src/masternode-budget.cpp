@@ -554,7 +554,6 @@ void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, b
     }
 }
 
-
 void CBudgetManager::FillTreasuryBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStake)
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
@@ -564,8 +563,7 @@ void CBudgetManager::FillTreasuryBlockPayee(CMutableTransaction& txNew, CAmount 
  
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
     payee = Params().GetTreasuryRewardScript(IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT));
-    CAmount treasurePayment = blockValue - 10 * COIN;
-
+    CAmount treasurePayment = GetTreasuryPaymentValue(blockValue);
 
 	if (fProofOfStake) {
 		/**For Proof Of Stake vout[0] must be null

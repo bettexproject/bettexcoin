@@ -2091,6 +2091,11 @@ double ConvertBitsToDouble(unsigned int nBits)
     return dDiff;
 }
 
+CAmount GetTreasuryPaymentValue(CAmount blockValue)
+{
+    return  blockValue - 10 * COIN;
+}
+
 int64_t GetBlockValue(int nHeight)
 {
     int64_t nSubsidy = 0;
