@@ -6008,7 +6008,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                     }
                 }
                 //disconnect this node if its old protocol version
-                pfrom->DisconnectOldProtocol(DisconnectOldProtocol(ActiveProtocol(), strCommand);
+                pfrom->DisconnectOldProtocol(ActiveProtocol(), strCommand);
               } else {
                   LogPrint("net", "%s : Already processed block %s, skipping ProcessNewBlock()\n", __func__, block.GetHash().GetHex());
                 }
