@@ -120,7 +120,7 @@ public:
     
     std::string vTreasuryRewardAddress_old;
     std::string vTreasuryRewardAddress;
-    
+
     std::string GetTreasuryRewardAddress(bool fNewAddress) const;
     CScript GetTreasuryRewardScript(bool fNewAddress) const;
 

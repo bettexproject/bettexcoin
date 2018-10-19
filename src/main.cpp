@@ -85,7 +85,6 @@ bool fAlerts = DEFAULT_ALERTS;
 static unsigned int nStakeMinAgeV1 = 6 * 60 * 60; // 6 hours
 static unsigned int nStakeMinAgeV2 = 12 * 60 * 60; // 12 hours after block 86400
 const int targetReadjustment_forkBlockHeight = 86400; //retargeting since 86400 block
-const int blockFork = 140000; //fork after 140 000 block
 
 int64_t nReserveBalance = 0;
 
@@ -104,7 +103,7 @@ unsigned int GetStakeMinAge(int nHeight)
 
 int GetMinPeerProtoVersion(int nHeight)
 {
-	return PROTOCOL_VERSION; // always return new protocol version, forget about older blockchain.
+  return PROTOCOL_VERSION;
 }
 
 
@@ -2128,7 +2127,7 @@ int64_t GetBlockValue(int nHeight)
 			nSubsidy = 8 * COIN;
     } else if(nHeight > 64800 && nHeight <= 122400) {
 			nSubsidy = 15 * COIN;
-    } else if(nHeight > 122400 && nHeight <= blockFork) {
+    } else if(nHeight > 122400 && nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
 			nSubsidy = 29 * COIN;
 	  } else {
 	    nSubsidy = 4 * COIN;
@@ -2151,7 +2150,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	if (nHeight <= 800) {
     ret = blockValue  / 100 * 0;
 	}
-  else if (nHeight > 1 && nHeight <= blockFork) {
+  else if (nHeight > 1 && nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
     ret = blockValue  / 100 * 80; //80%
 	}
   else {
@@ -2171,7 +2170,7 @@ bool IsTreasuryBlock(int nHeight)
 {
 	if(nHeight < nStartTreasuryBlock)
 		return false;
-	else if( (nHeight-nStartTreasuryBlock) % nTreasuryBlockStep == 0)
+	else if((nHeight-nStartTreasuryBlock) % nTreasuryBlockStep == 0)
 		return true;
 	else
 		return false;
@@ -2182,9 +2181,9 @@ int64_t GetTreasuryAward(int nHeight)
 	if(IsTreasuryBlock(nHeight)) {
 		if(nHeight == nStartTreasuryBlock)
 			return 200010 * COIN; //200,000 for the first treasury block, 10 - reward to PoS
-		else if(nHeight <= blockFork)
+		else if(nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
 			return 12510 * COIN; //12,500 for each next block
-    else if(nHeight > blockFork)
+    else if(nHeight > GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
       return 20010 * COIN; // 20,000 after fork
 	} else
 		return 0;
@@ -5449,7 +5448,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
-        if (pfrom->DisconnectOldProtocol(GetMinPeerProtoVersion(nCurHeight), strCommand))
+        if (pfrom->DisconnectOldProtocol(ActiveProtocol(), strCommand))
             return false;
 
         if (pfrom->nVersion == 10300)
@@ -6008,10 +6007,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                         if(lockMain) Misbehaving(pfrom->GetId(), nDoS);
                     }
                 }
-                //disconnect this node if its old protocol version
-                pfrom->DisconnectOldProtocol(GetMinPeerProtoVersion(pindexBestHeader->nHeight), strCommand);
-            } else {
-                LogPrint("net", "%s : Already processed block %s, skipping ProcessNewBlock()\n", __func__, block.GetHash().GetHex());
             }
         }
     }
@@ -6254,15 +6249,9 @@ int ActiveProtocol()
     // SPORK_14 was used for 70910. Leave it 'ON' so they don't see > 70910 nodes. They won't react to SPORK_15
     // messages because it's not in their code
 
-/*    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
-*/
 
-    // SPORK_15 is used for 70911. Nodes < 70911 don't see it and still get their protocol version via SPORK_14 and their
-    // own ModifierUpgradeBlock()
-
-    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
-            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
 }
 
