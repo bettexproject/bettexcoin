@@ -52,9 +52,8 @@ Our main idea is to set up a decentralized betting exchange based on the blockch
 <tr><td>Phase 4</td><td>21601-43200</td><td>5 BTXC</td><td>80%</td><td>20%</td></tr>
 <tr><td>Phase 5</td><td>43201-64800</td><td>8 BTXC</td><td>80%</td><td>20%</td></tr>
 <tr><td>Phase 6</td><td>64801-122400</td><td>15 BTXC</td><td>80%</td><td>20%</td></tr>
-<tr><td>Phase 7</td><td>122401-216000</td><td>29 BTXC</td><td>80%</td><td>20%</td></tr>
-<tr><td>Phase 8</td><td>216001-266000</td><td>58 BTXC</td><td>80%</td><td>20%</td></tr>
-<tr><td>Phase X</td><td>266001-Infinite</td><td>50 BTXC</td><td>80%</td><td>20%</td></tr>
+<tr><td>Phase 7</td><td>122401-166599</td><td>29 BTXC</td><td>80%</td><td>20%</td></tr>
+<tr><td>Phase X</td><td>166600-Infinite</td><td>4 BTXC</td><td>90%</td><td>10%</td></tr>
 </table>
 
 ### DevFee Reward
