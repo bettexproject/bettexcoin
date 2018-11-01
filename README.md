@@ -61,5 +61,6 @@ Our main idea is to set up a decentralized betting exchange based on the blockch
 <table>
 <th>Phase</th><th>Block Height</th><th>Reward</th>
 <tr><td>Phase 1</td><td>43200</td><td>200010</td></tr>
-<tr><td>Phase X</td><td>every 10080 blocks</td><td>12510</td></tr>
+<tr><td>Phase 2</td><td>43200-166599(every 10080 blocks)</td><td>12510</td></tr>
+<tr><td>Phase X</td><td>166600-Infinite(every 10080 blocks)</td><td>20010</td></tr>
 </table>
