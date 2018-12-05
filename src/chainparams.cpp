@@ -56,11 +56,25 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0xba22dc25a234e72c66e105b8800a569a3a1887b18e8ad5fd59f357d9bdd1eeb2"));
+    (0, uint256("0xba22dc25a234e72c66e105b8800a569a3a1887b18e8ad5fd59f357d9bdd1eeb2"))
+    (919, uint256("0x059188aa5d2b8fd2d6a4b40a11e52565550d3b6dad22a3f1de91e7bbb43dc5d5"))
+    (25986, uint256("0x6182b6c92ee96de95345e11dedf9c73ad8d07be67ee2c1c2872edd49d6d67a42"))
+    (41379, uint256("0x017134e658471dad208a15e3cbf19c71fde0831c171eeb0e5afa13590280cb53"))
+    (42789, uint256("0x3a3a157c3451c01f7319f47dc621b144a7ee7e39f5197716ee0b62df22d33c63"))
+    (43389, uint256("0xa6082bc3ed03073df85e0b3472a671d38768088cf1b6591c36db2906c99aef29"))
+    (133920, uint256("0x00ce7b912f0431be5e20028883dc692eece58f23bca1e57ec38513f1dcb5e693"))
+    (166600, uint256("0xce00de245ce63fe3920617d49078e4198d299db63bdb0a9c0432043023575cbc")) // Soft
+    (168185, uint256("0x3c13c70c3eb6e96ab465b0f8d6c32cffea25cc9e2c7e0ef7871ff0e3751e14ab"))
+    (174241, uint256("0x1332830b5e166ee7550800aeaf8539a3f5e714894da712dd85b4e08498b4d428"))
+    (178801, uint256("0xa3d45f5883b535356489bafbdede32a7ef3fe335c203e3f0c51d27a1dd4a5191"))
+    (178829, uint256("0x5a66ffbae46f53ae8cabd37b51d5c9a3aceb248d10f07a3f19d64d7e265bc26a"))
+    (178881, uint256("0x68f4852739e6872622b8ee49c4f5da18d64e82428260cdb14fddb7d6fd47b079"))
+    (184320, uint256("0x5f0114508657dea0d3b2cc953167e859183749ee3e3850d9cc88d87f38c6fa74"));
+
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1531213200, // * UNIX timestamp of last checkpoint block
-    0,    // * total number of transactions between genesis and last checkpoint
+    1542522108, // * UNIX timestamp of last checkpoint block
+    391919,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -167,7 +181,7 @@ public:
 
         vSeeds.push_back(CDNSSeedData("seed1", "seed1.bettex.bet"));     // Primary DNS Seeder
         vSeeds.push_back(CDNSSeedData("seed2", "seed2.bettex.bet"));    // Secondary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("seed3", "seed3.bettex.bet"));   // Single node address
+        vSeeds.push_back(CDNSSeedData("seed3", "seed3.bettex.bet"));   // DNS Seeder
 
 		    base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);
