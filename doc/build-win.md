@@ -89,7 +89,7 @@ This means you cannot use a directory that is located directly on the host Windo
 
 Acquire the source in the usual way:
 
-    git clone https://github.com/bitcoin/bitcoin.git
+    git clone https://github.com/bettexproject/bettexcoin.git
 
 Once the source code is ready the build steps are below:
 
@@ -117,7 +117,7 @@ This means you cannot use a directory that located directly on the host Windows 
 
 Acquire the source in the usual way:
 
-    git clone https://github.com/bitcoin/bitcoin.git
+    git clone https://github.com/bettexproject/bettexcoin.git
 
 Then build using:
 
@@ -139,9 +139,9 @@ Installation
 After building using the Windows subsystem it can be useful to copy the compiled
 executables to a directory on the Windows drive in the same directory structure
 as they appear in the release `.zip` archive. This can be done in the following
-way. This will install to `c:\workspace\bitcoin`, for example:
+way. This will install to `c:\workspace\bettex`, for example:
 
-    make install DESTDIR=/mnt/c/workspace/bitcoin
+    make install DESTDIR=/mnt/c/workspace/bettex
 
 You can also create an installer using:
 
