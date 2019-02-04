@@ -422,7 +422,7 @@ CNodeState* State(NodeId pnode)
 {
     map<NodeId, CNodeState>::iterator it = mapNodeState.find(pnode);
     if (it == mapNodeState.end())
-        return NULL;
+        return nullptr;
     return &it->second;
 }
 
@@ -4466,7 +4466,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
         }
 
         // Store to disk
-        CBlockIndex* pindex = NULL;
+        CBlockIndex* pindex = nullptr;
         bool ret = AcceptBlock (*pblock, state, &pindex, dbp, checked);
         if (pindex && pfrom) {
             mapBlockSource[pindex->GetBlockHash ()] = pfrom->GetId ();
@@ -4474,9 +4474,9 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
         CheckBlockIndex ();
         if (!ret) {
             // Check spamming
-            if(GetBoolArg("-blockspamfilter", DEFAULT_BLOCK_SPAM_FILTER)) {
+            if(pfrom && GetBoolArg("-blockspamfilter", DEFAULT_BLOCK_SPAM_FILTER)) {
                 CNodeState *nodestate = State(pfrom->GetId());
-                if (nodestate) {
+                if (nodestate != nullptr) {
                     nodestate->nodeBlocks.onBlockReceived(pindex->nHeight);
                     bool nodeStatus = true;
                     // UpdateState will return false if the node is attacking us or update the score and return true.
