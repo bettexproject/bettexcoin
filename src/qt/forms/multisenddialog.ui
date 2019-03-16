@@ -61,8 +61,7 @@
     <number>1</number>
    </property>
    <property name="text">
-    <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Bettex addresses after it matures.
-To Add: enter percentage to give and Bettex address to add to the MultiSend vector.</string>
+    <string>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Bettex coin addresses after it matures. MultiSend will not be activated unless you have clicked Activate</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

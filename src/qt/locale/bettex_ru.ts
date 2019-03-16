@@ -904,7 +904,7 @@ MultiSend: %1</translation>
     </message>
     <message>
         <source>Received with address</source>
-        <translation>Полученно на адрес</translation>
+        <translation>Получено на адрес</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1024,7 +1024,7 @@ MultiSend: %1</translation>
     </message>
     <message>
         <source>none</source>
-        <translation>ничего</translation>
+        <translation>пусто</translation>
     </message>
     <message>
         <source>yes</source>
@@ -1263,7 +1263,7 @@ MultiSend: %1</translation>
     </message>
     <message>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
-        <translation>Примечание: Состояние ваших мастернод в локальном кошельке может слегка отличаться от действительности. &lt;br /&gt;Всегда дожидайтесь окончания синхронизации дополнительных данных и затем дважды проверьте с другого узла&lt;br /&gt;если ваша нода должна работать, но в окне "Состояние" пишет "НЕАКТИВНО"</translation>
+        <translation>Примечание: Состояние ваших мастернод в локальном кошельке может отличаться от действительности. &lt;br /&gt;Всегда дожидайтесь окончания синхронизации дополнительных данных&lt;br /&gt;если ваша нода работает, то в окне "Состояние" должно быть "АКТИВНО"</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -1303,7 +1303,7 @@ MultiSend: %1</translation>
     </message>
     <message>
         <source>Start &amp;MISSING</source>
-        <translation>Запуск &amp;НЕАКТИВНЫХ</translation>
+        <translation>Запуск &amp;неактивных</translation>
     </message>
     <message>
         <source>&amp;Update status</source>
@@ -1373,14 +1373,8 @@ MultiSend: %1</translation>
         <translation>Введите адрес для отправки</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Bettex addresses after it matures.
-To Add: enter percentage to give and Bettex address to add to the MultiSend vector.
-To Delete: Enter address to delete and press delete.
-MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>MultiSend позволяет вам автоматически отправлять до 100% вознаграждения за мастерноды и хранение, после их созревания, на другие Bettex адреса.
-Для добавления: введите передаваемый процент и Bettex адрес для добавления к вектору MultiSend.
-Для удаления: введите удаляемый адрес и нажмите удалить.
-MultiSend будет неактивен до тех пор, пока вы не нажмете Включить</translation>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Bettex coin addresses after it matures. MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>MultiSend позволяет автоматически отправлять до 100% вознаграждения за PoS и MN после их созревания на другие Bettex coin адреса. MultiSend будет неактивен до тех пор, пока вы не нажмете Включить</translation>
     </message>
     <message>
         <source>Add to MultiSend Vector</source>
@@ -1448,11 +1442,11 @@ MultiSend будет неактивен до тех пор, пока вы не �
     </message>
     <message>
         <source>Send For Stakes</source>
-        <translation>Передавать вознаграждение от хранения</translation>
+        <translation>Отправлять награду за PoS</translation>
     </message>
     <message>
         <source>Send For Masternode Rewards</source>
-        <translation>Передавать вознаграждение за мастерноды</translation>
+        <translation>Отправлять награду за MN</translation>
     </message>
     <message>
         <source>The entered address:
@@ -1639,15 +1633,27 @@ Please check the address and try again.</source>
     </message>
     <message>
         <source>Automatically start Bettex after logging in to the system.</source>
-        <translation>Автоматически запускать Bettex после входа в систему.</translation>
+        <translation>Автоматически запускать Bettex coin wallet после входа в систему.</translation>
     </message>
     <message>
         <source>&amp;Start Bettex on system login</source>
-        <translation>&amp;Запускать Bettex при входе в систему</translation>
+        <translation>&amp;Запускать Bettex coin wallet при входе в систему</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
         <translation>Показывает или скрывает особенности управления монетами.</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>Управление монетами...</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Монеты выбраны автоматически</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Функция управления монетами</translation>
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
@@ -1797,7 +1803,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     </message>
     <message>
         <source>none</source>
-        <translation>ничего</translation>
+        <translation>пусто</translation>
     </message>
     <message>
         <source>Confirm options reset</source>
@@ -2220,7 +2226,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     </message>
     <message>
         <source>None</source>
-        <translation>Ничего</translation>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -3376,7 +3382,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     </message>
     <message>
         <source>Loading block index...</source>
-        <translation>Загружается индекс блока ...</translation>
+        <translation>Загружается индексы блоков ...</translation>
     </message>
     <message>
         <source>Loading budget cache...</source>
