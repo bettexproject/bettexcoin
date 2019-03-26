@@ -1918,7 +1918,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     </message>
     <message>
         <source>out of sync</source>
-        <translation>несинронизировано</translation>
+        <translation>рассинхронизация</translation>
     </message>
 </context>
 <context>
@@ -2179,7 +2179,7 @@ https://www.transifex.com/bettex-project/bettex-project-translations</translatio
     </message>
     <message>
         <source>out of sync</source>
-        <translation>несинронизировано</translation>
+        <translation>рассинхронизация</translation>
     </message>
     <message>
         <source>Copy quantity</source>
