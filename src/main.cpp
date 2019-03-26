@@ -2203,7 +2203,7 @@ int64_t GetBlockValue(int nHeight)
 			nSubsidy = 8 * COIN;
     } else if(nHeight > 64800 && nHeight <= 122400) {
 			nSubsidy = 15 * COIN;
-    } else if(nHeight > 122400 && nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
+    } else if(nHeight > 122400 && nHeight <= 166599) {
 			nSubsidy = 29 * COIN;
 	  } else {
 	    nSubsidy = 4 * COIN;
@@ -2226,7 +2226,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	if (nHeight <= 800) {
     ret = blockValue  / 100 * 0;
 	}
-  else if (nHeight > 1 && nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
+  else if (nHeight > 1 && nHeight <= 166599) {
     ret = blockValue  / 100 * 80; //80%
 	}
   else {
@@ -2257,9 +2257,9 @@ int64_t GetTreasuryAward(int nHeight)
 	if(IsTreasuryBlock(nHeight)) {
 		if(nHeight == nStartTreasuryBlock)
 			return 200010 * COIN; //200,000 for the first treasury block, 10 - reward to PoS
-		else if(nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+		else if(nHeight <= 166599)
 			return 12510 * COIN; //12,500 for each next block
-    else if(nHeight > GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+    else if(nHeight > 166599)
       return 20010 * COIN; // 20,000 after fork
 	} else
 		return 0;
@@ -6401,7 +6401,7 @@ int ActiveProtocol()
     // SPORK_14 was used for 70910. Leave it 'ON' so they don't see > 70910 nodes. They won't react to SPORK_15
     // messages because it's not in their code
 
-    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;

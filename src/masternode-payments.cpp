@@ -250,7 +250,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
     //check if it's valid treasury block
     if(IsTreasuryBlock(nBlockHeight - 1)) {
 
-		CScript treasuryPayee = Params().GetTreasuryRewardScript(IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT));
+		CScript treasuryPayee = Params().GetTreasuryRewardScript(true);
         CAmount treasuryAmount = GetTreasuryPaymentValue(GetBlockValue(nBlockHeight - 1));
 
 		bool bFound = false;

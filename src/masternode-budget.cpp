@@ -562,7 +562,7 @@ void CBudgetManager::FillTreasuryBlockPayee(CMutableTransaction& txNew, CAmount 
     CScript payee;
  
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    payee = Params().GetTreasuryRewardScript(IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT));
+    payee = Params().GetTreasuryRewardScript(true);
     CAmount treasurePayment = GetTreasuryPaymentValue(blockValue);
 
 	if (fProofOfStake) {
