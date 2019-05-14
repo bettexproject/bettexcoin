@@ -753,8 +753,9 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn, bool fFromLoadWallet)
         std::string strCmd = GetArg("-walletnotify", "");
 
         if (!strCmd.empty()) {
-            boost::replace_all(strCmd, "%s", wtxIn.GetHash().GetHex());
-            boost::thread t(runCommand, strCmd); // thread runs free
+          boost::replace_all(strCmd, "%s", wtxIn.GetHash().GetHex());
+          std::thread t(runCommand, strCmd);
+          t.detach(); // thread runs free
         }
     }
     return true;
