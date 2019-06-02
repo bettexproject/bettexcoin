@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/bettexproject/bettexcoin/blob/master/readme_logo.png"></p>
+<p align="center"><img src="https://github.com/bettexproject/bettexcoin/blob/master/logo.png"></p>
 
 ## About Bettex coin
 
