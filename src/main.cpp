@@ -2205,9 +2205,11 @@ int64_t GetBlockValue(int nHeight)
 			nSubsidy = 15 * COIN;
     } else if(nHeight > 122400 && nHeight <= 166599) {
 			nSubsidy = 29 * COIN;
-	  } else {
+	  } else if(nHeight > 166599 && nHeight <= GetSporkValue(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
 	    nSubsidy = 4 * COIN;
-	    }
+    } else {
+  	  nSubsidy = 0.01 * COIN;
+      }
     }
 
     return nSubsidy;
@@ -6401,7 +6403,7 @@ int ActiveProtocol()
     // SPORK_14 was used for 70910. Leave it 'ON' so they don't see > 70910 nodes. They won't react to SPORK_15
     // messages because it's not in their code
 
-    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
+    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
